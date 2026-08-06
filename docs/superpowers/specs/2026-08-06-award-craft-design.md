@@ -152,7 +152,7 @@ award-craft/                          # C:\Proyectos\award-craft
 ```
 0. PREFLIGHT (igual que craft)
 1. LECTURA del proyecto: stack, secciones, animaciones existentes
-2. GAP-ANALYSIS contra checklist Awwwards (12 pts) + detectores impeccable
+2. GAP-ANALYSIS contra el checklist de anatomía Awwwards (awwwards-rubric.md) + detectores impeccable
    → informe: qué tiene, qué falta, qué está mal
 3. PLAN DE ELEVACIÓN priorizado por impacto/esfuerzo
    ═══ GATE: Alan aprueba qué items aplicar ═══
@@ -176,7 +176,9 @@ crítica contra checklist → fix → re-shoot → prefijo `verified_` por panta
 una pasada final confirmando el set completo. **Máx 3 iteraciones por issue**; lo
 que no converge se reporta como pendiente — nunca loop infinito.
 
-Los 12 checks (cuantitativos, no opinables):
+**Nota de nomenclatura:** existen dos listas distintas y ambas se usan — el *checklist técnico* (los 12 checks de abajo, propios de verify) y el *checklist de anatomía Awwwards* (12 puntos del wiki, vive en `references/awwwards-rubric.md`, usado por gap-analysis de elevate y por el check #12).
+
+Los 12 checks técnicos (cuantitativos, no opinables):
 
 1. Variante `prefers-reduced-motion` existe y renderiza el contenido completo
 2. Animaciones continuas usan solo `transform`/`opacity` (grep + inspección)
@@ -190,7 +192,7 @@ Los 12 checks (cuantitativos, no opinables):
    no desktop degradado)
 10. Contraste AA en texto sobre media
 11. Staggers con cap de total; duraciones dentro de las bandas del motion system
-12. Score final contra el checklist Awwwards de 12 puntos → reporte
+12. Score final contra el checklist de anatomía Awwwards (`awwwards-rubric.md`) → reporte
 
 ## 9. Manejo de errores
 
