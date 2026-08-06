@@ -65,15 +65,12 @@ award-craft/                          # C:\Proyectos\award-craft
 │   │   ├── SKILL.md                  # brief-por-slot, mapa de ratios, tools Higgsfield, post-specs
 │   │   └── references/
 │   │       └── prompting.md          # vocabulario premium, negative space, loops seamless
-│   └── verify/
-│       ├── SKILL.md                  # protocolo del loop
-│       └── references/
-│           └── checklist.md          # los 12 checks cuantitativos
-├── commands/
-│   ├── craft.md
-│   ├── elevate.md
-│   ├── verify.md
-│   └── assets.md
+│   ├── verify/
+│   │   ├── SKILL.md                  # protocolo del loop
+│   │   └── references/
+│   │       └── checklist.md          # los 12 checks cuantitativos
+│   ├── craft/SKILL.md                # entrypoint orquestador (/award-craft:craft)
+│   └── elevate/SKILL.md              # entrypoint orquestador (/award-craft:elevate)
 ├── templates/
 │   ├── DESIGN.md.template
 │   ├── PRODUCT.md.template
