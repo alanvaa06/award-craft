@@ -1,0 +1,31 @@
+---
+source: {{brand_source_path | "created by award-craft direction"}}
+imported: {{date}}
+approved: {{date_gate}}
+---
+# DESIGN — {{project}}
+
+## Palette
+{{4-6 named colors: `--name: #hex` — mark dominant vs accent}}
+
+## Typography
+{{display face / body face / utility-mono face; scale: hero clamp() +
+body px + steps}}
+
+## Motion identity
+- Signature ease: `cubic-bezier({{...}})`  (adjectives: {{a, b, c}})
+- Exit ease: {{...}} · Emphasized: {{...}}
+- Durations: fast {{0.2s}} / base {{0.4s}} / slow {{0.8s}} / hero {{1.2s}}
+- Stagger unit: {{0.05s}}
+
+## Art direction
+Medium / Lighting / Grade / Texture / Mood / Never-list
+
+## Asset slots
+| slot | ratio | treatment | file |
+|---|---|---|---|
+{{one row per media slot}}
+
+## Drift vs brand source
+{{inherited core: palette, type, voice, anti-refs — list each drift + reason,
+or "sin drift"}}

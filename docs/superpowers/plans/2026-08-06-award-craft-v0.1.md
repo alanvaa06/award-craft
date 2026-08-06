@@ -148,7 +148,7 @@ const SKILLS = [
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
-    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'naming'] },
+    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming'] },
   { path: 'skills/verify/SKILL.md', name: 'verify',
     markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile'] },
 ];
@@ -858,3 +858,9 @@ git tag v0.1.0
 ## Post-v0.1 (NOT in this plan — spec §11 NO-goals)
 
 Dogfood: (1) `/craft` on tu-tribu with its guión + brand source; (2) `/elevate` on alanvaa. Findings feed v0.2 without redefining plan defaults unless Alan decides explicitly.
+
+## Errata (post final-review fixes)
+- All cross-file paths in skill bodies now use `${CLAUDE_PLUGIN_ROOT}/...` (runtime cwd is the target repo).
+- validate.mjs gained: plugin-root path resolution scan, minimum sizes, design-plan header + 12-check content contracts.
+- prompting.md defers ratio authority to the assets SKILL slot map; scroll-video master slot added; ffmpeg escalates to CORE for scroll-video signatures.
+- typography.md stagger values labeled per-char; hero vw band annotated.

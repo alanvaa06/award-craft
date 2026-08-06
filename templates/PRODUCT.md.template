@@ -1,0 +1,27 @@
+---
+source: {{brand_source_path | "created by award-craft intake"}}
+imported: {{date}}
+---
+# PRODUCT — {{project}}
+
+## Oferta
+{{qué vende / qué resuelve, 2-4 líneas}}
+
+## Audiencia
+{{quién compra, qué le importa, nivel de sofisticación}}
+
+## CTA principal
+{{la única acción que la página debe lograr}}
+
+## Tono
+{{3 adjetivos}}
+
+## Referencias visuales
+{{sitios/estéticas a acercarse}}
+
+## Anti-referencias
+{{lo que NO debe parecer — incluye siempre: plantilla genérica SaaS,
+stock photography, Inter + gradiente morado}}
+
+## Guión
+{{ruta al guión del landing si existe; si no, "sin guión — anatomía estándar"}}
