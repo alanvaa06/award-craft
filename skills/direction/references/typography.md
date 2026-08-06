@@ -22,8 +22,8 @@ recognizable free-font defaults undercut the Design score.
 
 Extreme ratio, not a smooth modular climb:
 
-- **Hero**: 8–18vw, `clamp()`-bounded so it never breaks at extreme viewport
-  widths.
+- **Hero**: 8–18vw (`clamp()`-bounded; 10–18vw is the common hero band — see
+  awwwards-rubric.md).
 - **Body**: locked at 16–18px.
 - **Steps**: very few intermediate steps — 4–6 total, loosely modular
   (~1.25–1.333 ratio), with a **deliberate jump** to display size. The gap
@@ -56,7 +56,7 @@ with responsive re-splitting and built-in screen-reader handling.
 **Canonical recipe**:
 ```
 yPercent: 100 → 0
-stagger: 0.02–0.04
+stagger: 0.02–0.04 (per-char; for line/card staggers use 0.08–0.12 per motion-system.md)
 ease: power4.out
 duration: 0.8–1.2s
 ```

@@ -68,14 +68,9 @@ and crop, which also buys responsive art-direction flexibility via
 `<picture>`/`srcset`. Outpainting extends a good composition to an extreme
 ratio instead of regenerating.
 
-| Slot | Ratio | Notes |
-|---|---|---|
-| Full-bleed hero (desktop) | 16:9, or 21:9 for ultrawide art direction | >=1920px, 2560x1440+ for retina. Most tools output ~1024px — upscaling is mandatory |
-| Mobile hero | 9:16 | Generate a separate vertical composition; don't crop the desktop hero |
-| Section dividers | 21:9, 3:1, 8:1 | Outpaint from a 16:9 master |
-| Cards / features | 4:3 or 3:2 | 3:2 reads more photographic |
-| Portraits / testimonials | 4:5 or 1:1 | 4:5 is the editorial portrait standard |
-| Product grid | 1:1 + 4:5 detail | Consistent ratio across the grid is itself a brand signal |
+Ratios are fixed by the slot contract in
+`${CLAUDE_PLUGIN_ROOT}/skills/assets/SKILL.md` — never choose alternatives.
+This file only supplies prompt phrasing per slot type.
 
 Delivery: WebP/AVIF, per-breakpoint variants, under ~500KB where possible.
 

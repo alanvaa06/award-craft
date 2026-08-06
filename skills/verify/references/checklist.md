@@ -24,4 +24,5 @@ Screenshot checks (per set):
     not overflowed desktop).
 11. Text over media meets WCAG AA contrast (spot-check hero + footer CTA).
 12. Score the page against the 12-point Awwwards anatomy checklist
-    (direction/references/awwwards-rubric.md) — report N/12 with one line each.
+    (${CLAUDE_PLUGIN_ROOT}/skills/direction/references/awwwards-rubric.md) —
+    report N/12 with one line each.

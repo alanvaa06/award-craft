@@ -13,7 +13,8 @@ Every generation uses the visual-DNA block derived from DESIGN.md:
 Style (medium) / Palette (named colors + hex) / Lighting (one recipe) /
 Grade / Texture / Composition / Mood (3 adjectives) / Never-list.
 Plus the slot spec: ratio, negative-space zone for UI overlay, subject.
-Premium vocabulary and slot-negative-space phrasing: references/prompting.md.
+Premium vocabulary and slot-negative-space phrasing:
+${CLAUDE_PLUGIN_ROOT}/skills/assets/references/prompting.md.
 
 ## Slot map (ratios are contract — layout never reflows)
 | Slot | Ratio | Notes |
@@ -24,6 +25,7 @@ Premium vocabulary and slot-negative-space phrasing: references/prompting.md.
 | card / feature | 3:2 | consistent across the whole grid |
 | portrait | 4:5 | editorial standard |
 | bg loop | 16:9 video 6–10s | muted, no audio track, seamless |
+| scroll-video master | 16:9 source clip 4-8s | generate master clip via Higgsfield, then ffmpeg frame sets (15fps desktop / 12fps mobile 960px) per ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/scroll-video.md |
 
 ## Generation rules
 - Images: 3–5 candidates per slot, pick against DESIGN.md, iterate ONE

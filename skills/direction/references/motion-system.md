@@ -31,7 +31,7 @@ rather than a product.
 |---|---|---|
 | Strong ease-out (quart/quint) | `cubic-bezier(0.23, 1, 0.32, 1)` | Snappy start, long luxurious settle — the classic "expensive" feel |
 | Expo-out (`expo.out`) | ~`cubic-bezier(0.19, 1, 0.22, 1)` | Sharper attack; hero reveals, big surfaces |
-| Power4-out (`power4.out`) | `cubic-bezier(0.23, 1, 0.32, 1)` | The de facto Awwwards default for text and panel reveals |
+| Power4-out (`power4.out`) | `cubic-bezier(0.23, 1, 0.32, 1)` | The de facto Awwwards default for text and panel reveals (same curve as strong ease-out — power4.out is GSAP's name for it) |
 | Strong ease-in-out | `cubic-bezier(0.77, 0, 0.175, 1)` | Symmetric, cinematic; position swaps, masks, curtains |
 | iOS drawer | `cubic-bezier(0.32, 0.72, 0, 1)` | Sheet motion that feels native |
 | Back-out (overshoot) | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Small bounce past target; playful confirmations only |

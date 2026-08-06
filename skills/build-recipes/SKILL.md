@@ -13,13 +13,16 @@ pattern goes WHERE and the site-level wiring.
 ## Order of construction
 1. Scaffold: `create-next-app` (TS, Tailwind, App Router, src/). Install
    `gsap lenis`. No other animation libs.
-2. Global wiring FIRST (references/lenis-setup.md): Lenis on GSAP ticker,
-   `lagSmoothing(0)`, single RAF loop. `html { scroll-behavior: auto !important }`.
+2. Global wiring FIRST (${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/lenis-setup.md):
+   Lenis on GSAP ticker, `lagSmoothing(0)`, single RAF loop.
+   `html { scroll-behavior: auto !important }`.
 3. Tokens: DESIGN.md palette/type/spacing → Tailwind theme + CSS custom
    properties (`--ease-out-brand`, `--dur-base`...). `gsap.defaults({ease, duration})`.
 4. Sections in SCRIPT ORDER, one at a time. Per section pick the pattern from
-   references/page-anatomy.md + references/scrolltrigger-patterns.md. Consult
-   references/anti-patterns.md BEFORE writing each ScrollTrigger.
+   ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/page-anatomy.md +
+   ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/scrolltrigger-patterns.md.
+   Consult ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/anti-patterns.md
+   BEFORE writing each ScrollTrigger.
 5. Asset placeholders: every media slot renders a placeholder at the EXACT
    ratio from the design plan (`aspect-[16/9]` etc.) with the slot name visible
    — layout must never reflow when real assets land.
@@ -29,6 +32,8 @@ pattern goes WHERE and the site-level wiring.
    no `opacity: 0` initial states in CSS; set from JS.
 7. Signature moment LAST, with the most care. Budget: 1–2 pinned sequences per
    page max, runway 1.5–3 viewport-heights per chapter.
+   Signature techniques: scroll-video → ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/scroll-video.md;
+   3D → ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/r3f.md.
 
 ## Hard rules (from verified doctrine)
 - Scrub OR toggleActions per trigger, never both. Scrub 0.5–1.5 for

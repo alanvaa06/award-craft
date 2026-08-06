@@ -203,7 +203,7 @@ Los 12 checks técnicos (cuantitativos, no opinables):
 
 ## 10. Testing del plugin
 
-- **`validate.mjs`** (convención forge-master): estructura del plugin, frontmatter de skills, comandos referencian skills existentes, budget de tokens por reference.
+- **`validate.mjs`** (convención forge-master): estructura del plugin, frontmatter de skills, las rutas `${CLAUDE_PLUGIN_ROOT}` referenciadas en skills existen (resolución verificada), budget de tokens por reference.
 - **Golden brief**: brief sintético fijo (incluido en el repo) → `/craft` en repo temporal → el checklist debe pasar. Regresión barata antes de cada release.
 - **Dogfood**: (1) tu-tribu — greenfield, plan 01 ya escrito; (2) `/elevate` sobre alanvaa. Hallazgos alimentan v0.2; los casos reales no redefinen defaults del plan salvo decisión explícita de Alan.
 - **Triggering**: descriptions de skills con "use when…" explícito.

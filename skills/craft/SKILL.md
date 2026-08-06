@@ -14,7 +14,9 @@ Check and report before anything:
 - CORE for asset phase (continue but mark assets phase blocked): Higgsfield
   MCP tools reachable.
 - OPTIONAL (warn only): remotion/hyperframes skills (custom video — out of
-  scope v0.1), ffmpeg on PATH (scroll-video frames).
+  scope v0.1), ffmpeg on PATH (scroll-video frames) — becomes CORE if the
+  approved design plan's signature moment uses scroll-video (re-check at the
+  gate; block the build of that section and report if missing).
 
 ## 1. Intake
 Inputs (any combination): text brief; @docs (PRD, brand doc, landing script
@@ -29,7 +31,7 @@ ALWAYS ask comprehension questions (even with docs): offer, audience, primary
 CTA, tone (3 adjectives), visual references/anti-references, which script
 section is the climax (signature-moment candidate). One question at a time.
 If docs + answers leave gaps → deep interview until PRODUCT.md writes with no
-holes. Write PRODUCT.md from templates/PRODUCT.md.template.
+holes. Write PRODUCT.md from ${CLAUDE_PLUGIN_ROOT}/templates/PRODUCT.md.template.
 If script and brand source contradict: surface it, propose a resolution,
 let the gate decide.
 

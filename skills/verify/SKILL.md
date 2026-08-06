@@ -13,7 +13,8 @@ description: Mandatory visual verification loop for award-craft landings — scr
 3. Screenshot set: desktop 1280px AND mobile 375px, at minimum: top of page,
    each script section, the signature moment mid-animation, the footer.
    Mobile is evaluated as ITS OWN designed choreography, not shrunk desktop.
-4. Critique each screenshot against references/checklist.md — enumerate
+4. Critique each screenshot against
+   ${CLAUDE_PLUGIN_ROOT}/skills/verify/references/checklist.md — enumerate
    concrete deltas, no vibes. Code checks (grep items) run once per pass.
 5. Fix findings. Re-shoot affected screenshots.
 6. A screenshot that passes is renamed with the `verified_` prefix. Loop until
@@ -22,7 +23,7 @@ description: Mandatory visual verification loop for award-craft landings — scr
    pending — never loop infinitely, never silently drop.
 8. Output: verify report — checks passed/failed, pending issues, screenshot
    inventory, score against the Awwwards anatomy checklist
-   (direction/references/awwwards-rubric.md).
+   (${CLAUDE_PLUGIN_ROOT}/skills/direction/references/awwwards-rubric.md).
 
 ## Reduced-motion pass (mandatory)
 Emulate prefers-reduced-motion; screenshot the same set. Full content must be

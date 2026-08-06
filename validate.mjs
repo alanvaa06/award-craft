@@ -1,6 +1,6 @@
 // validate.mjs — structural acceptance test for the award-craft plugin.
 // Dependency-free Node ESM. Exit 0 = all green, non-zero = failures.
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
 
 let failures = 0;
 const fail = (m) => { console.error('FAIL: ' + m); failures++; };
@@ -84,6 +84,39 @@ for (const r of REFS) {
 for (const f of ['templates/PRODUCT.md.template', 'templates/DESIGN.md.template',
                  'templates/design-plan.template.md', 'tests/golden-brief.md'])
   if (!existsSync(f)) fail(`${f} missing`); else ok(`${f} exists`);
+
+// 5. Every ${CLAUDE_PLUGIN_ROOT}/ path mentioned in skills/references must resolve.
+const mdFiles = [];
+const walk = (d) => { for (const e of readdirSync(d, { withFileTypes: true })) {
+  const p = d + '/' + e.name;
+  if (e.isDirectory()) walk(p); else if (e.name.endsWith('.md')) mdFiles.push(p);
+} };
+walk('skills');
+const PATH_RE = /\$\{CLAUDE_PLUGIN_ROOT\}\/([A-Za-z0-9_\-./]+\.(?:md|template))/g;
+for (const f of mdFiles) {
+  const t = readFileSync(f, 'utf8');
+  for (const m of t.matchAll(PATH_RE)) {
+    if (!existsSync(m[1])) fail(`${f}: broken plugin-root path ${m[1]}`);
+  }
+}
+ok('all ${CLAUDE_PLUGIN_ROOT} paths resolve');
+
+// 6. Minimum sizes — a truncated skill/reference must not pass silently.
+for (const s of SKILLS) if (existsSync(s.path) && statSync(s.path).size < 800)
+  fail(`${s.path}: suspiciously small (<800 bytes)`);
+for (const r of REFS) if (existsSync(r) && statSync(r).size < 1200)
+  fail(`${r}: suspiciously small (<1200 bytes)`);
+ok('minimum sizes checked');
+
+// 7. Content contracts: design-plan template headers + 12 checklist items.
+const dp = readFileSync('templates/design-plan.template.md', 'utf8');
+for (const h of ['## Tokens', '## Motion identity', '## Art direction', '## Wireframe',
+                 '## Signature moment', '## Drift vs brand source', '## Asset slots'])
+  if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
+const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
+const numbered = cl.match(/^\d+\./gm) || [];
+if (numbered.length !== 12) fail(`checklist.md: expected 12 numbered checks, found ${numbered.length}`);
+ok('content contracts checked');
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');
 process.exit(failures ? 1 : 0);
