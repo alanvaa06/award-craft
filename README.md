@@ -37,12 +37,22 @@ git clone https://github.com/alanvaa06/award-craft
 
 ## Commands
 
-| Command | Description |
+Two entry points. Start here unless you know you want a single stage.
+
+| Command | What it does |
 |---|---|
-| `/award-craft:craft <brief> [@docs] [--brand <path>]` | Build a new landing page end-to-end — intake, approved design plan gate, recipe build, Higgsfield assets, mandatory verify. |
-| `/award-craft:elevate [path]` | Elevate an existing page — gap-analysis against the Awwwards anatomy checklist, prioritized plan gate, apply approved items, mandatory verify. |
-| `/award-craft:verify` | Mandatory visual verification loop — screenshot desktop+mobile, critique against the checklist, fix, re-shoot until `verified_`. |
-| `/award-craft:assets <slot>` | Generate and integrate landing media via Higgsfield MCP from a DESIGN.md-derived brief (hero, texture, bg loop, product shot). |
+| `/award-craft:craft <brief> [@docs] [--brand <path>]` | Build a new landing page from nothing. Asks what you're selling, proposes a design plan, waits for your approval, then builds it, generates the images, and checks the result on screen. |
+| `/award-craft:elevate [path]` | Take a page you already have and make it better. Reads the code, lists what's weak against the Awwwards checklist, you pick what to fix, it fixes and re-checks. |
+
+The four stages below run automatically inside `craft` and `elevate`. Call one
+directly when you only want that piece redone.
+
+| Command | What it does |
+|---|---|
+| `/award-craft:direction` | Decides how the page should look and move — colors, fonts, spacing, the motion feel, a rough box-drawing layout per section, and the one moment meant to be memorable. Writes the plan; writes no code. Needs `PRODUCT.md`. |
+| `/award-craft:build-recipes` | Writes the actual code from the approved plan, on the fixed stack. Never runs before a plan is approved. |
+| `/award-craft:assets <slot>` | Makes the images and video the page needs (hero shot, texture, background loop, product shot) via Higgsfield, and drops them into place. Needs a `DESIGN.md` with asset slots. |
+| `/award-craft:verify` | Screenshots the page on desktop and mobile, grades it against a checklist, fixes what fails, screenshots again. Repeats until it passes. A build that compiled is not done — only a passing screenshot is done. |
 
 ## The flow
 
@@ -85,3 +95,7 @@ verified — treat it as a starting point, not doctrine.
 
 Semantic versioning — see [CHANGELOG.md](CHANGELOG.md). v0.1 scope and
 NO-goals: [docs/superpowers/specs/2026-08-06-award-craft-design.md](docs/superpowers/specs/2026-08-06-award-craft-design.md).
+
+## License
+
+MIT — see [LICENSE](LICENSE).
