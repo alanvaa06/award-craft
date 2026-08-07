@@ -19,6 +19,10 @@ Score the current page against the Awwwards anatomy checklist
 (${CLAUDE_PLUGIN_ROOT}/skills/direction/references/awwwards-rubric.md) + run
 impeccable's audit.
 Output: what it has / what is missing / what is wrong (with file:line refs).
+Also score the copy: hero tests, arc coherence, banned language, micro-copy
+(see `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/copywriting.md`).
+Copy rewrites are a modernization lever — place them with typography (highest
+lift, lowest risk).
 
 ## 3. Elevation plan → GATE
 Prioritized items (impact vs effort), each: what changes, which recipe

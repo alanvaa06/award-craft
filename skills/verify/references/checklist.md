@@ -40,3 +40,14 @@ Layout & copy checks (per set — distilled from taste-skill, MIT):
 18. Copy tells: zero em-dashes in landing copy (headlines, body, buttons,
     quotes); no placeholder names ("Jane Doe", "Acme", "Nexus"); no
     fake-precise specs ("47.2%") without data backing.
+
+Narrative & copy checks (per set — see direction/references/copywriting.md):
+19. Hero passes the grunt test (offer / benefit / how to buy readable in ~5s)
+    AND the descriptiveness test — or the approved design plan explicitly
+    justifies an evocative hero exception.
+20. Page copy follows the approved guión's arc: every section has a narrative
+    job (problem / agitation step / proof / climax / resolution-CTA); no
+    section exists without one. Climax section = signature moment section.
+21. Micro-copy: buttons preview the post-click result, echo the headline verb
+    phrase, and never remind the user of work; body copy is second person
+    singular; no header a competitor could equally claim.

@@ -9,6 +9,17 @@
 - Mixed ES/EN surface (templates + golden brief in Spanish)
 - Preflight install instructions live only in README
 
+## [0.3.0] - 2026-08-06
+### Added
+- Narrative layer: craft writes the landing script (guión) as an intake deliverable when none is supplied; script + copy drafts are approved at the same gate as the design plan
+- Rule: the narrative climax and the signature moment are the same section
+- Intake now captures the Schwartz awareness stage and verbatim voice-of-customer phrasing
+- Verbal identity in the direction design plan (derived by analogy with motion identity — no documented methodology survived verification)
+- New reference: copywriting.md (PAS arc, awareness/sophistication, hero tests, VoC, Ogilvy, CTA micro-copy, banned language, documented gaps)
+- Verify checks 19-21: hero grunt/descriptiveness tests, narrative arc coherence, micro-copy and POV
+### Notes
+- Copy doctrine distilled from the vault article "Landing Page Copywriting Doctrine" (Ogilvy, Schwartz, Wiebe/Unbounce, Shapiro, Miller). Four sub-topics have no verified doctrine and are documented as gaps: LatAm bilingual register, verbal-identity methodology, modern AI-copy-tell lists, per-section word budgets.
+
 ## [0.2.0] - 2026-08-06
 ### Added
 - Calibration dials (DESIGN_VARIANCE / MOTION_INTENSITY / VISUAL_DENSITY, 1-10, baseline 8/6/4) and mandatory design-read line in the direction design plan
