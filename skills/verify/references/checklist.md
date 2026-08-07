@@ -45,9 +45,11 @@ Narrative & copy checks (per set — see direction/references/copywriting.md):
 19. Hero passes the grunt test (offer / benefit / how to buy readable in ~5s)
     AND the descriptiveness test — or the approved design plan explicitly
     justifies an evocative hero exception.
-20. Page copy follows the approved guión's arc: every section has a narrative
-    job (problem / agitation step / proof / climax / resolution-CTA); no
-    section exists without one. Climax section = signature moment section.
+20. Page copy follows the approved guión's arc: every CONTENT section has a
+    narrative job (problem / agitation step / proof / climax / resolution-CTA);
+    no content section exists without one. Climax section = signature moment
+    section. Structural chrome (preloader, navbar, overlay menu, footer) is
+    exempt — it carries brand and utility, not narrative.
 21. Micro-copy: buttons preview the post-click result, echo the headline verb
     phrase, and never remind the user of work; body copy is second person
     singular; no header a competitor could equally claim.

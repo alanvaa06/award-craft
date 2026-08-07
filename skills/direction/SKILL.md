@@ -57,7 +57,8 @@ sections:
 5. **Art direction** — medium, lighting recipe, grade, texture, mood; explicit
    anti-references (what this must NOT look like).
 6. **Wireframe** — ASCII wireframe per script section, in script order. If no
-   script: preloader → hero → 2-4 body chapters → interactive footer
+   script: preloader → hero → 3-6 body chapters (content sections carrying the
+   PAS arc; the conversion-doctrine range in copywriting.md) → interactive footer
    (anatomy in awwwards-rubric.md).
 7. **Signature moment** — ONE unique, memorable device, tied to the script's
    climax section, justified against the brief. Name the technique

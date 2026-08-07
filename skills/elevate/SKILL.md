@@ -30,8 +30,9 @@ applies, expected checklist deltas. ═══ STOP: human picks items ═══
 
 ## 4. Apply approved items using ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes (same rules).
 Apply modernization levers in this order (highest lift / lowest risk first):
-typography refresh → spacing & rhythm → color recalibration → motion layer →
-hero and key-section recomposition → full block replacement (last resort).
+typography refresh + copy rewrites (headline/CTA/banned language — same tier:
+highest lift, lowest risk) → spacing & rhythm → color recalibration → motion
+layer → hero and key-section recomposition → full block replacement (last resort).
 Never silently change slugs, nav labels, form field names, or legal copy.
 (Lever order distilled from taste-skill, MIT.)
 
