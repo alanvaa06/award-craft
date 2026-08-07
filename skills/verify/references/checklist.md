@@ -26,3 +26,17 @@ Screenshot checks (per set):
 12. Score the page against the 12-point Awwwards anatomy checklist
     (${CLAUDE_PLUGIN_ROOT}/skills/direction/references/awwwards-rubric.md) —
     report N/12 with one line each.
+
+Layout & copy checks (per set — distilled from taste-skill, MIT):
+13. Hero budget: headline ≤ 2 lines, subtext ≤ 20 words and ≤ 4 lines, hero
+    stack ≤ 4 text elements, primary CTA visible without scrolling (1280 and 375).
+14. Eyebrow restraint: uppercase-tracking micro-labels ≤ ceil(sectionCount / 3).
+15. Layout variety: ≥ 4 distinct layout families across the page; no layout
+    family repeated more than 2 consecutive sections.
+16. One accent color used consistently (grep hex usage; accents beyond the
+    DESIGN.md accent are a fail).
+17. Full-viewport sections use `min-h-[100dvh]` (or 100dvh), never `h-screen`
+    (grep for h-screen — zero hits).
+18. Copy tells: zero em-dashes in landing copy (headlines, body, buttons,
+    quotes); no placeholder names ("Jane Doe", "Acme", "Nexus"); no
+    fake-precise specs ("47.2%") without data backing.
