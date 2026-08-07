@@ -58,3 +58,18 @@ ScrollTrigger for it, not after it feels wrong in review.
 impeccable lints these — don't duplicate the linting, just don't do them:
 Inter/Arial defaults, gray text on colored backgrounds, pure black/gray,
 cards nested in cards, bounce/elastic easing on UI.
+
+## Copy & layout tells (distilled from taste-skill, MIT)
+
+- Em-dashes in landing copy — the #1 LLM copy tell. Periods, commas, line
+  breaks or hyphens instead. (Applies to page copy, not to code or docs.)
+- Placeholder names ("Jane Doe", "Sarah Chan") and startup-slop brand names
+  ("Acme", "Nexus", "CloudFlow") in mock content.
+- Fake-precise specs ("47.2%", "1234567") without data backing them.
+- The default premium-consumer palette (beige + brass + oxblood + espresso)
+  reached for on every luxury/wellness brief — requires explicit brand
+  justification and must differ from your previous premium project.
+- Three equal feature cards in a row — use asymmetric grids or split layouts.
+- Serif as an unexamined default: serif display faces are core Awwwards
+  vocabulary (see typography.md) but every serif choice must be articulated
+  in the design plan's art direction — never reached for on autopilot.

@@ -38,7 +38,7 @@ const SKILLS = [
   { path: 'skills/elevate/SKILL.md', name: 'elevate',
     markers: ['Preflight', 'Gap-analysis', 'GATE', 'verify', 'antes/después'] },
   { path: 'skills/direction/SKILL.md', name: 'direction',
-    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity'] },
+    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials'] },
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
@@ -110,12 +110,13 @@ ok('minimum sizes checked');
 
 // 7. Content contracts: design-plan template headers + 12 checklist items.
 const dp = readFileSync('templates/design-plan.template.md', 'utf8');
-for (const h of ['## Tokens', '## Motion identity', '## Art direction', '## Wireframe',
-                 '## Signature moment', '## Drift vs brand source', '## Asset slots'])
+for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Calibration dials',
+                 '## Art direction', '## Wireframe', '## Signature moment',
+                 '## Drift vs brand source', '## Asset slots'])
   if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
 const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
 const numbered = cl.match(/^\d+\./gm) || [];
-if (numbered.length !== 12) fail(`checklist.md: expected 12 numbered checks, found ${numbered.length}`);
+if (numbered.length !== 18) fail(`checklist.md: expected 18 numbered checks, found ${numbered.length}`);
 ok('content contracts checked');
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');

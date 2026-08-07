@@ -146,7 +146,9 @@ official docs and forums, Awwwards evaluation pages, and engineering blogs on
 scroll and motion craft. Claims marked `verified` in the references passed a
 3-vote adversarial verification pass before being written down. The WebGL /
 React Three Fiber reference is practitioner consensus, not independently
-verified — treat it as a starting point, not doctrine.
+verified — treat it as a starting point, not doctrine. Calibration dials,
+layout/copy checks and elevate lever ordering are distilled from
+[taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT).
 
 ## Versioning
 

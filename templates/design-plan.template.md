@@ -2,11 +2,17 @@
 
 This document is what the human approves at the gate before build begins.
 
+## Design read
+<!-- One declarative line — page kind, audience, vibe, aesthetic lean. -->
+
 ## Tokens
 <!-- 4–6 named colors with hex (dominant vs accent explicit); 2–3 type roles (display / body / utility) with candidate faces; spacing unit. -->
 
 ## Motion identity
 <!-- ONE signature ease (cubic-bezier) + exit variant + emphasized variant; duration bands (fast/base/slow/hero); stagger unit. Choose 3 adjectives first, derive curves from them. -->
+
+## Calibration dials
+<!-- DESIGN_VARIANCE / MOTION_INTENSITY / VISUAL_DENSITY, 1-10 each with one-line reason; baseline 8/6/4. -->
 
 ## Art direction
 <!-- Medium, lighting recipe, grade, texture, mood; explicit anti-references (what this must NOT look like). -->

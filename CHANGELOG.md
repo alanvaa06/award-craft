@@ -9,6 +9,14 @@
 - Mixed ES/EN surface (templates + golden brief in Spanish)
 - Preflight install instructions live only in README
 
+## [0.2.0] - 2026-08-06
+### Added
+- Calibration dials (DESIGN_VARIANCE / MOTION_INTENSITY / VISUAL_DENSITY, 1-10, baseline 8/6/4) and mandatory design-read line in the direction design plan
+- Verify checks 13-18: hero budget, eyebrow restraint, layout variety, single accent, 100dvh, copy tells
+- Copy & layout tells section in anti-patterns.md
+- Elevate: Preserve/Overhaul mode detection and ordered modernization levers
+- Attribution: distilled from taste-skill (github.com/Leonxlnx/taste-skill, MIT)
+
 ## [0.1.0] - 2026-08-06
 ### Added
 - Skills: craft, elevate, direction, build-recipes, assets, verify

@@ -11,6 +11,8 @@ description: Elevate an existing landing page toward Awwwards level — read the
 Stack (confirm Next.js — if not, report that v0.1 only supports the fixed
 stack and stop); sections; existing animations (GSAP? Lenis? CSS?); existing
 DESIGN.md/PRODUCT.md or brand source (same resolution as craft §1).
+Detect the mode: **Preserve** (modernize without breaking identity) or
+**Overhaul** (new visuals, preserve content). State it in the gap-analysis.
 
 ## 2. Gap-analysis
 Score the current page against the Awwwards anatomy checklist
@@ -23,6 +25,11 @@ Prioritized items (impact vs effort), each: what changes, which recipe
 applies, expected checklist deltas. ═══ STOP: human picks items ═══
 
 ## 4. Apply approved items using ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes (same rules).
+Apply modernization levers in this order (highest lift / lowest risk first):
+typography refresh → spacing & rhythm → color recalibration → motion layer →
+hero and key-section recomposition → full block replacement (last resort).
+Never silently change slugs, nav labels, form field names, or legal copy.
+(Lever order distilled from taste-skill, MIT.)
 
 ## 5. Verify — invoke skill verify. Mandatory.
 
