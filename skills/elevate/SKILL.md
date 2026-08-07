@@ -19,6 +19,10 @@ Score the current page against the Awwwards anatomy checklist
 (${CLAUDE_PLUGIN_ROOT}/skills/direction/references/awwwards-rubric.md) + run
 impeccable's audit.
 Output: what it has / what is missing / what is wrong (with file:line refs).
+Also score the copy: hero tests, arc coherence, banned language, micro-copy
+(see `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/copywriting.md`).
+Copy rewrites are a modernization lever — place them with typography (highest
+lift, lowest risk).
 
 ## 3. Elevation plan → GATE
 Prioritized items (impact vs effort), each: what changes, which recipe
@@ -26,8 +30,9 @@ applies, expected checklist deltas. ═══ STOP: human picks items ═══
 
 ## 4. Apply approved items using ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes (same rules).
 Apply modernization levers in this order (highest lift / lowest risk first):
-typography refresh → spacing & rhythm → color recalibration → motion layer →
-hero and key-section recomposition → full block replacement (last resort).
+typography refresh + copy rewrites (headline/CTA/banned language — same tier:
+highest lift, lowest risk) → spacing & rhythm → color recalibration → motion
+layer → hero and key-section recomposition → full block replacement (last resort).
 Never silently change slugs, nav labels, form field names, or legal copy.
 (Lever order distilled from taste-skill, MIT.)
 

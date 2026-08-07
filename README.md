@@ -148,7 +148,10 @@ scroll and motion craft. Claims marked `verified` in the references passed a
 React Three Fiber reference is practitioner consensus, not independently
 verified — treat it as a starting point, not doctrine. Calibration dials,
 layout/copy checks and elevate lever ordering are distilled from
-[taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT).
+[taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT). Copy doctrine comes
+from the same vault (Ogilvy/Schwartz/Wiebe/Shapiro/Miller); four sub-topics —
+LatAm bilingual register, verbal-identity methodology, modern AI-copy-tell
+lists, per-section word budgets — are documented gaps, not invented rules.
 
 ## Versioning
 

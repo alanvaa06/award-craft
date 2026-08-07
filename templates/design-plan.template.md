@@ -11,6 +11,9 @@ This document is what the human approves at the gate before build begins.
 ## Motion identity
 <!-- ONE signature ease (cubic-bezier) + exit variant + emphasized variant; duration bands (fast/base/slow/hero); stagger unit. Choose 3 adjectives first, derive curves from them. -->
 
+## Verbal identity
+<!-- POV (second person singular in body copy, first person possessive in buttons), sentence rhythm, allowed/banned lexicon, punctuation habits, one verbal signature. Derived by analogy with motion identity — not documented doctrine, see copywriting.md Gaps section. -->
+
 ## Calibration dials
 <!-- DESIGN_VARIANCE / MOTION_INTENSITY / VISUAL_DENSITY, 1-10 each with one-line reason; baseline 8/6/4. -->
 

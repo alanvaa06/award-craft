@@ -38,7 +38,7 @@ const SKILLS = [
   { path: 'skills/elevate/SKILL.md', name: 'elevate',
     markers: ['Preflight', 'Gap-analysis', 'GATE', 'verify', 'antes/después'] },
   { path: 'skills/direction/SKILL.md', name: 'direction',
-    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials'] },
+    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials', 'Verbal identity'] },
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
@@ -64,6 +64,7 @@ const REFS = [
   'skills/direction/references/typography.md',
   'skills/direction/references/motion-system.md',
   'skills/direction/references/trends.md',
+  'skills/direction/references/copywriting.md',
   'skills/build-recipes/references/lenis-setup.md',
   'skills/build-recipes/references/scrolltrigger-patterns.md',
   'skills/build-recipes/references/scroll-video.md',
@@ -110,13 +111,13 @@ ok('minimum sizes checked');
 
 // 7. Content contracts: design-plan template headers + 12 checklist items.
 const dp = readFileSync('templates/design-plan.template.md', 'utf8');
-for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Calibration dials',
-                 '## Art direction', '## Wireframe', '## Signature moment',
+for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Verbal identity',
+                 '## Calibration dials', '## Art direction', '## Wireframe', '## Signature moment',
                  '## Drift vs brand source', '## Asset slots'])
   if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
 const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
 const numbered = cl.match(/^\d+\./gm) || [];
-if (numbered.length !== 18) fail(`checklist.md: expected 18 numbered checks, found ${numbered.length}`);
+if (numbered.length !== 21) fail(`checklist.md: expected 21 numbered checks, found ${numbered.length}`);
 ok('content contracts checked');
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');

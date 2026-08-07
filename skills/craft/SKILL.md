@@ -35,8 +35,26 @@ holes. Write PRODUCT.md from ${CLAUDE_PLUGIN_ROOT}/templates/PRODUCT.md.template
 If script and brand source contradict: surface it, propose a resolution,
 let the gate decide.
 
+   Awareness stage (Schwartz) — ask which stage the traffic arrives at:
+   Most Aware / Product Aware / Solution Aware / Pain Aware / Unaware. It sets
+   both headline strategy and page length (see copywriting.md).
+
+   Voice of customer — during the interview, RECORD THE CLIENT'S EXACT PHRASING
+   and any customer quotes they can supply (testimonials, reviews, support
+   emails, sales-call language). Do not paraphrase: swiped customer wording is
+   the strongest documented headline tactic. Store verbatim quotes in PRODUCT.md.
+
+   If no landing script (guión) was supplied, CRAFT WRITES ONE as an intake
+   deliverable: docs/guion.md — section list in scroll order, the narrative arc
+   (PAS: problem → ordered agitation → solution/CTA, see
+   ${CLAUDE_PLUGIN_ROOT}/skills/direction/references/copywriting.md), a copy draft
+   per section (headline + subhead + body intent), and the climax section marked.
+   RULE: the narrative climax and the signature moment are THE SAME SECTION —
+   the page's peak of tension is where the animation budget is spent.
+
 ## 2. Design plan → GATE
-Invoke skill `direction`. Present the plan. ═══ STOP for human approval ═══
+Invoke skill `direction`. Present the plan and the guión (script + copy
+drafts). ═══ STOP for human approval — both artifacts approved together ═══
 Iterate on feedback. On approval: DESIGN.md written; proceed.
 
 ## 3. Build
@@ -51,5 +69,6 @@ Invoke skill `verify`. Mandatory — an unverified build is not done.
 
 ## 6. Final report
 What was built (per section); verify score + pending; assets per slot;
-drift applied; retro-sync suggestions (drift worth promoting to the brand
+drift applied; copy decisions (awareness stage, arc used, VoC quotes swiped);
+retro-sync suggestions (drift worth promoting to the brand
 source — the human decides and executes; this plugin never writes there).
