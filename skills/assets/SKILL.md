@@ -31,6 +31,12 @@ Run this before generating anything, every time.
 - A regeneration round that would push cumulative spend past the ceiling
   re-triggers the same stop. Track cumulative spend in the iteration log.
 
+The model and parameters for every video slot were APPROVED at the gate and are
+recorded in DESIGN.md (video tier + any per-slot overrides). Use them. If a slot
+cannot run on its approved config — model unavailable, parameter rejected — STOP
+and report; switching model or raising duration/resolution is a cost change and
+needs the same approval as crossing the ceiling.
+
 **Unlimited generations are never spent silently.** Omit `use_unlim` and let
 the server decide: if it returns `unlim_choice`, put that question to the human
 verbatim before anything is spent. Pass `use_unlim: true` only when the human
@@ -38,6 +44,25 @@ explicitly asks for it — never on your own initiative to save them credits, an
 remember it caps `count` to 1.
 
 Report actual credits spent against the ceiling in the final report.
+
+## Cost levers — what actually moves the bill
+
+Measured 2026-08-06 with `get_cost` (no jobs submitted), one 16:9 clip.
+Prices drift: re-measure rather than quoting these.
+
+| Lever | Effect | Evidence |
+|---|---|---|
+| **Model** | ~4.3x | kling3_0_turbo 5s/720p = 7.5 vs seedance_2_5 5s/720p = 32.5 |
+| **Resolution** | ~2.2x | seedance_2_5 5s: 720p = 32.5 vs 480p = 15 |
+| **Duration** | ~1.6x | seedance_2_5 720p: 5s = 32.5 vs 8s = 52 |
+| **Audio** | none measured | seedance_2_5 5s/720p: `generate_audio` true and false both 32.5 |
+| Images | flat | seedream_v4_5 16:9 = 1 credit — never worth optimising |
+
+Worst-to-best spread on a single clip is roughly 7x (7.5 to 52), which is why
+the tier is a human decision at the gate and not an agent default.
+For a background loop that sits behind text at low contrast, the budget tier is
+usually indistinguishable in place — spend the premium tier on the signature
+moment instead.
 
 ## Phase 0 — Reference Elements FIRST (the anti-generic lever)
 
@@ -144,10 +169,11 @@ never ship the least-bad frame.
 
 ## Iteration log
 Append every round to `docs/assets-log.md` in the target repo:
-slot · model resolved · prompt · element ids used · candidate count ·
-which one was picked and the one-line reason · credits spent this round and
-the cumulative total against the ceiling. It prevents repeating a
-generic attempt and gives the human something to argue with.
+slot · model resolved · config used (model, duration, resolution) · prompt ·
+element ids used · candidate count · which one was picked and the one-line
+reason · credits spent this round and the cumulative total against the
+ceiling. It prevents repeating a generic attempt and gives the human
+something to argue with.
 
 ## Post + integration
 - Format: WebP (AVIF only when payload-critical). Budgets: image <500KB,

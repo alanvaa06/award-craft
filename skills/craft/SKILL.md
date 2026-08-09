@@ -72,7 +72,8 @@ Invoke skill `verify`. Mandatory — an unverified build is not done.
 
 ## 6. Final report
 What was built (per section); verify score + pending; assets per slot,
-credits spent vs the approved ceiling; drift applied; copy decisions
-(awareness stage, arc used, VoC quotes swiped); retro-sync suggestions (drift
-worth promoting to the brand source — the human decides and executes; this
-plugin never writes there).
+credits spent vs the approved ceiling, the approved video tier and any
+per-slot overrides used; drift applied; copy decisions (awareness stage, arc
+used, VoC quotes swiped); retro-sync suggestions (drift worth promoting to the
+brand source — the human decides and executes; this plugin never writes
+there).
