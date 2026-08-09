@@ -73,7 +73,9 @@ ALWAYS resolve the current ID with
 and read `medias[].roles`, `aspect_ratios` and `parameters` off the returned
 model — never assume them.
 
-Vendor-documented routing by job (from the generate_image contract):
+Vendor-documented routing by job. Rows 1-3 are the documented defaults in the
+`generate_image` contract; rows 4-5 come from the model catalog descriptions
+returned by `models_explore` — verify against a live call before relying on them:
 
 | Job | Route to |
 |---|---|
@@ -88,7 +90,8 @@ DO NOT call `presets_show` — verified: its presets are creator/social effects
 assets. Calling it wastes a round trip.
 
 ## Generation mechanics
-- `count: 2-4` produces variants of the SAME prompt and settings.
+- `count` (1-4) produces variants of the SAME prompt and settings; use 2-4
+  when you want alternatives to choose between.
   For slots with DIFFERENT prompts use `generate_image_batch` — do not loop
   single calls.
 - `get_cost: true` preflights credits; run it before any batch over ~4 images

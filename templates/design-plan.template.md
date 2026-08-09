@@ -21,7 +21,7 @@ This document is what the human approves at the gate before build begins.
 <!-- Medium, lighting recipe, grade, texture, mood; explicit anti-references (what this must NOT look like). -->
 
 ## Wireframe
-<!-- ASCII wireframe per script section, in script order. If no script: preloader → hero → 2-4 body chapters → interactive footer. -->
+<!-- ASCII wireframe per script section, in script order. If no script: preloader → hero → 3-6 body chapters → interactive footer. -->
 
 ## Signature moment
 <!-- ONE unique, memorable device, tied to the script's climax section, justified against the brief. Name the technique (pin+scrub chapter / mask cursor / kinetic hero / scroll-video / R3F object). -->
