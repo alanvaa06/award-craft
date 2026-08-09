@@ -36,7 +36,11 @@ layer → hero and key-section recomposition → full block replacement (last re
 Never silently change slugs, nav labels, form field names, or legal copy.
 If the approved items require new assets, the same credit ceiling rule
 applies — propose the ceiling with the elevation plan and stop before
-exceeding it.
+exceeding it. If any of them is a VIDEO asset, price the tier menu with
+`get_cost` and present it with the elevation plan exactly as Pass-1 item 9 of
+${CLAUDE_PLUGIN_ROOT}/skills/direction/SKILL.md prescribes; elevate never
+invokes direction, so the menu has to be run here or the tier gets picked by
+an agent instead of the human.
 (Lever order distilled from taste-skill, MIT.)
 
 ## 5. Verify — invoke skill verify. Mandatory.
