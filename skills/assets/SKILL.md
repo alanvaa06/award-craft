@@ -1,6 +1,6 @@
 ---
 name: assets
-description: Generate and integrate all landing media via Higgsfield MCP from DESIGN.md-derived briefs — hero images, textures, background loops, product shots. Use when craft invokes the asset phase, or standalone to (re)generate one slot (e.g. "/award-craft:assets hero"). Requires DESIGN.md with an asset-slots section.
+description: Generate, refine and integrate all landing media via Higgsfield MCP from DESIGN.md-derived briefs — hero images, textures, background loops, product shots. Use when craft invokes the asset phase, standalone to (re)generate one slot ("/award-craft:assets hero"), or to refine a slot from feedback ("/award-craft:assets hero 'light too hard, more air on the left'"). Requires DESIGN.md with an asset-slots section.
 ---
 
 # Assets — Higgsfield MCP pipeline
@@ -63,6 +63,47 @@ the tier is a human decision at the gate and not an agent default.
 For a background loop that sits behind text at low contrast, the budget tier is
 usually indistinguishable in place — spend the premium tier on the signature
 moment instead.
+
+## Refine mode — regenerating from feedback
+
+Triggered when a slot is named together with feedback:
+`/award-craft:assets hero "light too hard, more air on the left"`.
+The landing already exists; something shipped that the human does not want.
+
+**Step 1 — read before generating.** Read `docs/assets-log.md` for this slot:
+what was already tried, which prompt produced the rejected asset, which
+elements were used, what was picked and why. Regenerating without reading it
+repeats the attempt that just failed.
+
+**Step 2 — classify the feedback.** Two kinds, and they route differently:
+
+| Kind | Examples | Route |
+|---|---|---|
+| **Execution** — the approved shot spec is fine, the output missed it | "light too hard", "colours too warm", "feels stocky", "more air on the left" (when the spec already asked for left negative space), "grain heavier" | Regenerate NOW, no confirmation. The human already approved this spec |
+| **Direction** — the feedback changes the approved shot spec | different subject, different camera angle or position, different lens, different moment, negative space moving to another side, a new element in frame | STOP. Show the updated shot spec (old line vs new line), get the human's ok, write it back to DESIGN.md, then generate |
+
+When it is genuinely ambiguous, treat it as Direction and ask — a five-second
+confirmation is cheaper than a regeneration the human did not want.
+
+**Step 3 — change ONE thing.** Carry the whole approved brief forward and
+change only what the feedback names. Feedback is not a new brief: the visual-DNA
+block, the locked elements and the ratio all stay. Say in the report which
+single variable moved.
+
+**Step 4 — promote what almost worked.** If a rejected generation was right
+about the environment, product or prop but wrong elsewhere, promote it to a
+Reference Element (Phase 0) before regenerating, so the part that worked stops
+being re-rolled. This is the cheapest way to converge.
+
+**Cost.** Refine rounds obey the same preflight and the same approved ceiling;
+cumulative spend across refine rounds counts against it, and a round that would
+cross it stops exactly as a first-run round would. If the human's feedback
+implies a tier change (a longer or higher-resolution clip), that is a cost
+change — present the priced options and get approval, do not silently upgrade.
+
+**Log it.** Every refine round appends to `docs/assets-log.md` like any other
+round, plus the feedback verbatim and the classification (execution or
+direction). The log is what stops round 4 from repeating round 2.
 
 ## Phase 0 — Reference Elements FIRST (the anti-generic lever)
 
@@ -172,8 +213,9 @@ Append every round to `docs/assets-log.md` in the target repo:
 slot · model resolved · config used (model, duration, resolution) · prompt ·
 element ids used · candidate count · which one was picked and the one-line
 reason · credits spent this round and the cumulative total against the
-ceiling. It prevents repeating a generic attempt and gives the human
-something to argue with.
+ceiling · feedback verbatim (refine rounds only) · classification (execution
+or direction, refine rounds only). It prevents repeating a generic attempt
+and gives the human something to argue with.
 
 ## Post + integration
 - Format: WebP (AVIF only when payload-critical). Budgets: image <500KB,

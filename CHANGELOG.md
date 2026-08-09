@@ -9,6 +9,13 @@
 - Mixed ES/EN surface (templates + golden brief in Spanish)
 - Preflight install instructions live only in README
 
+## [0.7.0] - 2026-08-06
+### Added
+- Refine mode in the assets skill: name a slot with feedback (`/award-craft:assets hero "light too hard"`) to regenerate an asset the human rejected
+- Feedback is classified before generating — execution feedback regenerates immediately, direction feedback (subject, camera, lens, moment, negative space) shows the updated shot spec and waits for approval, preserving the rule that the shot spec is the human's decision
+- Refine rounds read `docs/assets-log.md` first so a failed attempt is not repeated, change one variable at a time, and can promote a partially-successful generation to a Reference Element
+- Refine rounds obey the same cost preflight, approved ceiling and cumulative spend tracking; a tier change implied by feedback is presented as a priced decision, never applied silently
+
 ## [0.6.0] - 2026-08-06
 ### Added
 - Video tier menu priced live with `get_cost` and presented at the existing design-plan gate: the human picks one tier for the whole landing (per-slot override on request), because model choice alone swings a clip ~4.3x

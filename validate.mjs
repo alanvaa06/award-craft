@@ -42,7 +42,7 @@ const SKILLS = [
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
-    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements', 'Cost preflight', 'Cost levers'] },
+    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements', 'Cost preflight', 'Cost levers', 'Refine mode'] },
   { path: 'skills/verify/SKILL.md', name: 'verify',
     markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile'] },
 ];
