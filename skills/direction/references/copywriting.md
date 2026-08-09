@@ -3,7 +3,7 @@
 Lookup reference for an agent writing or judging landing-page copy — page
 architecture, hero tests, narrative arc, voice of customer, awareness/
 sophistication, headline craft, micro-copy, POV, and banned language, plus the
-documented gaps. Distilled from adversarially verified doctrine (2026-08-06
+documented gaps. Distilled from adversarially verified doctrine (2026-08-07
 run: 22 sources, 109 claims extracted, 25 verified 3 votes each -> 12
 findings, 3 refuted). Nothing below originates in the 2024-2026 window —
 Ogilvy (1963-83), Schwartz (1966), Wiebe/Unbounce (~2012-15), and Shapiro

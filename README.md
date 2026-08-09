@@ -52,7 +52,7 @@ directly when you only want that piece redone.
 |---|---|
 | `/award-craft:direction` | Decides how the page should look, move, and sound — colors, fonts, spacing, the motion feel, how the writing should read, a rough box-drawing layout per section, and the one moment meant to be memorable. Writes the plan; writes no code. Needs `PRODUCT.md`. |
 | `/award-craft:build-recipes` | Writes the actual code from the approved plan, on the fixed stack. Never runs before a plan is approved. |
-| `/award-craft:assets <slot>` | Makes the images and video the page needs (hero shot, texture, background loop, product shot) via Higgsfield, and drops them into place. Locks reusable references first (environment, product, recurring prop or person) so the set reads art-directed rather than stock. Needs a `DESIGN.md` with asset slots. |
+| `/award-craft:assets <slot>` | Makes the images and video the page needs (hero shot, texture, background loop, product shot) via Higgsfield, and drops them into place. Locks reusable references first (environment, product, recurring prop or person) so the set reads art-directed rather than stock. Also refines a slot from feedback (`/award-craft:assets hero "what was wrong"`) — cosmetic feedback regenerates immediately, feedback that changes the shot spec waits for your approval first. Needs a `DESIGN.md` with asset slots. |
 | `/award-craft:verify` | Screenshots the page on desktop and mobile, grades it against a checklist, fixes what fails, screenshots again. Repeats until it passes. A build that compiled is not done — only a passing screenshot is done. |
 
 ## Recommended workflow
@@ -111,6 +111,7 @@ Once a project has `PRODUCT.md` and `DESIGN.md`, call stages directly:
 |---|---|
 | Check a page you hand-edited | `/award-craft:verify` |
 | Regenerate one image | `/award-craft:assets hero` |
+| Regenerate an image you didn't like | `/award-craft:assets hero "what was wrong"` |
 | Rethink the look and voice, keep the structure | `/award-craft:direction`, then `/award-craft:build-recipes` |
 | Rebuild a section from an unchanged plan | `/award-craft:build-recipes` |
 
@@ -187,6 +188,7 @@ Semantic versioning — see [CHANGELOG.md](CHANGELOG.md).
 | v0.4 | Art-directed assets: reference elements, shot specs at the gate, model routing, checks 22-23 |
 | v0.5 | Credit ceiling approved at the gate; cost preflight with hard stop |
 | v0.6 | Video tier menu priced at the gate; ceiling derived from picks |
+| v0.7 | Refine mode: regenerate assets from feedback, classified before spending |
 
 Scope and NO-goals: [v0.1 design](docs/superpowers/specs/2026-08-06-award-craft-design.md) ·
 [v0.2 taste-skill integration](docs/superpowers/specs/2026-08-06-taste-skill-integration.md).

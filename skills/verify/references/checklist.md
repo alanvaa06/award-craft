@@ -66,3 +66,7 @@ Asset direction checks (per set):
 
 Cost note (not a numbered check): the verify report states credits spent on
 assets versus the ceiling approved with the design plan.
+
+Refine note (not a numbered check): when assets were refined from feedback, the
+report states which slots were refined, the feedback classification, and the
+cumulative spend across refine rounds.
