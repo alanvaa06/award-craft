@@ -14,8 +14,11 @@ Run this before generating anything, every time.
 
 1. `balance` — read the caller's available credits.
 2. `get_cost: true` on each planned slot generation (it prices the call without
-   submitting). Sum them. Reference-Element creation and uploads are not
-   generations; only priced calls count.
+   submitting). Sum them.
+   ASSUMPTION, not verified: Reference-Element creation and media uploads are
+   treated as free (they are not generations). Confirm this on the first real
+   run — if they do consume credits, the sum undercounts and the ceiling stop
+   fires late.
 3. Compare the total against the CREDIT CEILING approved with the design plan
    (recorded in DESIGN.md under Asset slots).
 

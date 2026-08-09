@@ -76,7 +76,10 @@ sections:
    at the gate, not at generation time.
    Close the item with a Credit ceiling line: propose a maximum number of
    Higgsfield credits the asset phase may spend for this landing, derived from
-   the slot count and how many are video (video clips dominate the cost). The
+   the slot count and how many are video. Measured 2026-08-06 via `get_cost`
+   (no job submitted): one 16:9 image = 1 credit; one 5s 16:9 video = 32.5
+   credits — a video slot costs ~32x an image slot, so video count sets the
+   ceiling. Re-measure rather than trusting these numbers over time. The
    human confirms or changes the number at the gate — it is approved together
    with the plan, not in a separate stop.
 
