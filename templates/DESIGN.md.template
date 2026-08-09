@@ -26,7 +26,9 @@ Medium / Lighting / Grade / Texture / Mood / Never-list
 |---|---|---|---|
 {{one row per media slot}}
 
-Credit ceiling: {{approved credits for the asset phase}}
+Video tier: {{tier name}} — {{model}} · {{duration}} · {{resolution}} · {{measured credits}} per clip
+Per-slot overrides: {{slot: model/params/cost, or "none"}}
+Credit ceiling: {{derived sum}} ({{video count}} video x {{tier cost}} + {{image count}} images x {{image cost}} + {{headroom}} headroom)
 
 ## Drift vs brand source
 {{inherited core: palette, type, voice, anti-refs — list each drift + reason,

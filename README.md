@@ -132,7 +132,7 @@ that.
     ▼
  design plan + script ══════ GATE — human approval, only one ═══════════════
     │  look, motion, voice, section copy, signature moment on the climax,
-    │  credit ceiling for the asset phase approved with the plan
+    │  video tier menu (priced live) + credit ceiling approved with the plan
     │  DESIGN.md written on approval
     ▼
  build (recipes)
@@ -186,6 +186,7 @@ Semantic versioning — see [CHANGELOG.md](CHANGELOG.md).
 | v0.3 | The narrative layer: gated script, verbal identity, copy doctrine, checks 19-21 |
 | v0.4 | Art-directed assets: reference elements, shot specs at the gate, model routing, checks 22-23 |
 | v0.5 | Credit ceiling approved at the gate; cost preflight with hard stop |
+| v0.6 | Video tier menu priced at the gate; ceiling derived from picks |
 
 Scope and NO-goals: [v0.1 design](docs/superpowers/specs/2026-08-06-award-craft-design.md) ·
 [v0.2 taste-skill integration](docs/superpowers/specs/2026-08-06-taste-skill-integration.md).

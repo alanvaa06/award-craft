@@ -74,14 +74,28 @@ sections:
    person that must be identical across slots) — those become Reference Elements
    before any generation. The shot spec is an art-direction decision and belongs
    at the gate, not at generation time.
-   Close the item with a Credit ceiling line: propose a maximum number of
-   Higgsfield credits the asset phase may spend for this landing, derived from
-   the slot count and how many are video. Measured 2026-08-06 via `get_cost`
-   (no job submitted): one 16:9 image = 1 credit; one 5s 16:9 video = 32.5
-   credits — a video slot costs ~32x an image slot, so video count sets the
-   ceiling. Re-measure rather than trusting these numbers over time. The
-   human confirms or changes the number at the gate — it is approved together
-   with the plan, not in a separate stop.
+   Close the item with the Video tier and the derived Credit ceiling.
+   Images cost ~1 credit and need no menu — generate them without asking.
+   Video is where the money is, so price it live and let the human choose:
+
+   Run `get_cost: true` (it prices without submitting) on one representative
+   video slot for three candidate configs and present them as a menu with the
+   real numbers, cheapest first. Reference shape, measured 2026-08-06 — RE-MEASURE,
+   do not quote these:
+   | Tier | Config | Measured |
+   |---|---|---|
+   | Budget | kling3_0_turbo · 5s · 720p | 7.5 credits |
+   | Standard | seedance_2_5 · 5s · 720p | 32.5 credits |
+   | Premium | seedance_2_5 · 8s · 720p | 52 credits |
+
+   The human picks ONE tier for the whole landing (visual coherence across
+   video slots matters more than per-slot optimisation). Per-slot overrides
+   only when they ask for one — record the override and its cost on that slot.
+
+   Then state the Credit ceiling as a derived sum, not a guess:
+   (video slots x tier cost) + (image slots x image cost) + a stated headroom
+   for regeneration rounds. Present the arithmetic so the human can see what
+   drives it.
 
 ## Drift rules (when a brand source was imported)
 - Core identity INHERITS, never silently changes: palette, typography families,
@@ -103,7 +117,8 @@ Then STOP and present the plan for human approval. On approval, write
 yourself — the orchestrator does.
 If the signature moment is scroll-video, state at the gate that ffmpeg
 becomes a CORE dependency.
-State the proposed credit ceiling explicitly when presenting the plan, so the
-human approves the spend and the design in one decision.
+Present the video tier menu with live `get_cost` numbers and the derived credit
+ceiling arithmetic when presenting the plan — the human approves the spend, the
+tier and the design in one decision.
 
 <!-- Calibration dials and design-read distilled from taste-skill (github.com/Leonxlnx/taste-skill, MIT) -->
