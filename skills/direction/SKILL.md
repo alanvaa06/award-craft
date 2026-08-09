@@ -65,9 +65,15 @@ sections:
    (pin+scrub chapter / mask cursor / kinetic hero / scroll-video / R3F object).
 8. **Drift vs brand source** — see below. Empty section allowed only when no
    brand source exists.
-9. **Asset slots** — every media slot with ratio + treatment — use ONLY the
-   slot names and ratios from the slot map in
-   `${CLAUDE_PLUGIN_ROOT}/skills/assets/SKILL.md` (the authoritative contract).
+9. **Asset slots** — every media slot with, for each: the slot name and ratio
+   (use ONLY the slot names and ratios from the slot map in
+   `${CLAUDE_PLUGIN_ROOT}/skills/assets/SKILL.md` — the authoritative contract),
+   plus a SHOT SPEC: subject, camera angle and position, lens, lighting setup,
+   the moment being captured, and where the negative space sits for UI overlay.
+   Also name which slots share a LOCKED ELEMENT (environment, product, prop or
+   person that must be identical across slots) — those become Reference Elements
+   before any generation. The shot spec is an art-direction decision and belongs
+   at the gate, not at generation time.
 
 ## Drift rules (when a brand source was imported)
 - Core identity INHERITS, never silently changes: palette, typography families,

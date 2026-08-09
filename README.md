@@ -52,7 +52,7 @@ directly when you only want that piece redone.
 |---|---|
 | `/award-craft:direction` | Decides how the page should look, move, and sound — colors, fonts, spacing, the motion feel, how the writing should read, a rough box-drawing layout per section, and the one moment meant to be memorable. Writes the plan; writes no code. Needs `PRODUCT.md`. |
 | `/award-craft:build-recipes` | Writes the actual code from the approved plan, on the fixed stack. Never runs before a plan is approved. |
-| `/award-craft:assets <slot>` | Makes the images and video the page needs (hero shot, texture, background loop, product shot) via Higgsfield, and drops them into place. Needs a `DESIGN.md` with asset slots. |
+| `/award-craft:assets <slot>` | Makes the images and video the page needs (hero shot, texture, background loop, product shot) via Higgsfield, and drops them into place. Locks reusable references first (environment, product, recurring prop or person) so the set reads art-directed rather than stock. Needs a `DESIGN.md` with asset slots. |
 | `/award-craft:verify` | Screenshots the page on desktop and mobile, grades it against a checklist, fixes what fails, screenshots again. Repeats until it passes. A build that compiled is not done — only a passing screenshot is done. |
 
 ## Recommended workflow
@@ -181,6 +181,7 @@ Semantic versioning — see [CHANGELOG.md](CHANGELOG.md).
 | v0.1 | Six skills, the design-plan gate, recipe build, Higgsfield assets, the 12-check verify loop |
 | v0.2 | Calibration dials, design read, layout/copy checks 13-18, elevate lever ordering |
 | v0.3 | The narrative layer: gated script, verbal identity, copy doctrine, checks 19-21 |
+| v0.4 | Art-directed assets: reference elements, shot specs at the gate, model routing, checks 22-23 |
 
 Scope and NO-goals: [v0.1 design](docs/superpowers/specs/2026-08-06-award-craft-design.md) ·
 [v0.2 taste-skill integration](docs/superpowers/specs/2026-08-06-taste-skill-integration.md).

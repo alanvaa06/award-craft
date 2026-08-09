@@ -53,3 +53,13 @@ Narrative & copy checks (per set — see direction/references/copywriting.md):
 21. Micro-copy: buttons preview the post-click result, echo the headline verb
     phrase, and never remind the user of work; body copy is second person
     singular; no header a competitor could equally claim.
+
+Asset direction checks (per set):
+22. Each shipped asset executes its approved shot spec: subject, camera angle
+    and position, lens, lighting setup, moment, and negative-space zone match
+    what the design plan specified. A pretty asset that ignores its spec is a
+    fail.
+23. Cross-slot coherence: one lighting direction and one grade across every
+    image on the page; locked elements (environment, product, prop, person)
+    are visually identical wherever they recur. Mixed light directions across
+    sections is the most common tell of ad-hoc AI generation.

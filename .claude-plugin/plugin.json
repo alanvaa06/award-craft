@@ -1,7 +1,7 @@
 {
   "name": "award-craft",
   "displayName": "Award Craft",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Builds and elevates Awwwards-level landing pages on a fixed stack (Next.js + Tailwind + GSAP + Lenis, optional R3F): guided intake with landing script and brand source, approved design plan gate, build from recipes, Higgsfield MCP assets, mandatory visual verify loop.",
   "author": { "name": "Alan Vazquez", "email": "alanvaa.06@gmail.com" },
   "homepage": "https://github.com/alanvaa06/award-craft",

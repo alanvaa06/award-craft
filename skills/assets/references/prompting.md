@@ -223,3 +223,20 @@ shipped asset. Beyond reproducibility, EU AI Act transparency provisions
 make generation records a practical compliance requirement for commercial
 work in Europe from mid-2026. Record this log entry at generation time, not
 retroactively — it is cheapest to capture right after the pick is made.
+
+## 10. Reference Elements — practical notes
+
+- An Element is injected by writing `<<<element_id>>>` inside the prompt text;
+  the backend swaps in the image and rewrites it to `@element_name`. Several
+  placeholders in one prompt are fine: `"<<<A>>> on the counter of <<<B>>>"`.
+- Elements work with the image models this plugin routes to (nano banana tiers,
+  gpt_image_2, seedream_v4_5, cinematic_studio_2_5) — NOT with Soul V2 /
+  Cinema, which take a `soul_id` instead.
+- Categories are auto-classified (character / environment / prop); pass an
+  explicit category only when the human asks for one.
+- Element names are unique per workspace and max 32 chars; collisions get a
+  numeric suffix. Name them by role in the landing (`hero-space`,
+  `product-bottle`), not by content description.
+- Promote-and-reuse: the first approved generation of a slot is the cheapest
+  source of a locked look for every later slot. Do it deliberately rather
+  than re-describing the same environment in five prompts.

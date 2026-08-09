@@ -21,7 +21,7 @@ This document is what the human approves at the gate before build begins.
 <!-- Medium, lighting recipe, grade, texture, mood; explicit anti-references (what this must NOT look like). -->
 
 ## Wireframe
-<!-- ASCII wireframe per script section, in script order. If no script: preloader → hero → 2-4 body chapters → interactive footer. -->
+<!-- ASCII wireframe per script section, in script order. If no script: preloader → hero → 3-6 body chapters → interactive footer. -->
 
 ## Signature moment
 <!-- ONE unique, memorable device, tied to the script's climax section, justified against the brief. Name the technique (pin+scrub chapter / mask cursor / kinetic hero / scroll-video / R3F object). -->
@@ -30,4 +30,4 @@ This document is what the human approves at the gate before build begins.
 <!-- Core identity INHERITS (palette, typography families, voice/tone, anti-references). Landing-specific MAY drift (signature moment, per-section tokens, motion timings, one accent color). EVERY drift: what changed, why. -->
 
 ## Asset slots
-<!-- Every media slot with ratio + treatment. -->
+<!-- Every media slot: name + ratio, plus a shot spec (subject, camera angle/position, lens, lighting setup, moment, negative-space zone for UI overlay). Name which slots share a locked element (environment, product, prop, person) — those become Reference Elements before generation. -->
