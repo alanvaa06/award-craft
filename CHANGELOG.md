@@ -9,6 +9,18 @@
 - Mixed ES/EN surface (templates + golden brief in Spanish)
 - Preflight install instructions live only in README
 
+## [0.4.0] - 2026-08-06
+### Added
+- Reference Elements as the first phase of the asset pipeline: reusable characters/environments/props created from real images and injected via `<<<element_id>>>`, so slots share a locked look instead of each landing on the model's statistical average
+- Shot spec per asset slot authored in the design plan (subject, camera, lens, lighting, moment, negative space) and approved at the gate — art direction no longer decided at generation time
+- Model routing by job with runtime ID resolution via `models_explore` (vendor IDs drift and disagree across tools)
+- Selection rubric: pick the most specific candidate, not the most polished; explicit rejection of the default AI look
+- Generation mechanics: `count` for same-prompt variants vs `generate_image_batch` for distinct slots; `get_cost` preflight before expensive batches
+- Iteration log at `docs/assets-log.md`
+- Verify checks 22-23: shot-spec compliance and cross-slot coherence
+### Notes
+- `presets_show` verified NOT applicable to landing assets (creator/social effect presets only) and documented as a no-go to save the round trip
+
 ## [0.3.0] - 2026-08-06
 ### Added
 - Narrative layer: craft writes the landing script (guión) as an intake deliverable when none is supplied; script + copy drafts are approved at the same gate as the design plan

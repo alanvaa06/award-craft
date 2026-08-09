@@ -42,7 +42,7 @@ const SKILLS = [
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
-    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming'] },
+    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements'] },
   { path: 'skills/verify/SKILL.md', name: 'verify',
     markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile'] },
 ];
@@ -117,7 +117,7 @@ for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Verbal
   if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
 const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
 const numbered = cl.match(/^\d+\./gm) || [];
-if (numbered.length !== 21) fail(`checklist.md: expected 21 numbered checks, found ${numbered.length}`);
+if (numbered.length !== 23) fail(`checklist.md: expected 23 numbered checks, found ${numbered.length}`);
 ok('content contracts checked');
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');

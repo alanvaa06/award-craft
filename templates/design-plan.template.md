@@ -30,4 +30,4 @@ This document is what the human approves at the gate before build begins.
 <!-- Core identity INHERITS (palette, typography families, voice/tone, anti-references). Landing-specific MAY drift (signature moment, per-section tokens, motion timings, one accent color). EVERY drift: what changed, why. -->
 
 ## Asset slots
-<!-- Every media slot with ratio + treatment. -->
+<!-- Every media slot: name + ratio, plus a shot spec (subject, camera angle/position, lens, lighting setup, moment, negative-space zone for UI overlay). Name which slots share a locked element (environment, product, prop, person) — those become Reference Elements before generation. -->
