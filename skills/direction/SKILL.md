@@ -74,6 +74,14 @@ sections:
    person that must be identical across slots) — those become Reference Elements
    before any generation. The shot spec is an art-direction decision and belongs
    at the gate, not at generation time.
+   Close the item with a Credit ceiling line: propose a maximum number of
+   Higgsfield credits the asset phase may spend for this landing, derived from
+   the slot count and how many are video. Measured 2026-08-06 via `get_cost`
+   (no job submitted): one 16:9 image = 1 credit; one 5s 16:9 video = 32.5
+   credits — a video slot costs ~32x an image slot, so video count sets the
+   ceiling. Re-measure rather than trusting these numbers over time. The
+   human confirms or changes the number at the gate — it is approved together
+   with the plan, not in a separate stop.
 
 ## Drift rules (when a brand source was imported)
 - Core identity INHERITS, never silently changes: palette, typography families,
@@ -95,5 +103,7 @@ Then STOP and present the plan for human approval. On approval, write
 yourself — the orchestrator does.
 If the signature moment is scroll-video, state at the gate that ffmpeg
 becomes a CORE dependency.
+State the proposed credit ceiling explicitly when presenting the plan, so the
+human approves the spend and the design in one decision.
 
 <!-- Calibration dials and design-read distilled from taste-skill (github.com/Leonxlnx/taste-skill, MIT) -->

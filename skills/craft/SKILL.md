@@ -12,7 +12,8 @@ Check and report before anything:
 - CORE (stop with install instructions if missing): gsap-skills skills
   available; impeccable available.
 - CORE for asset phase (continue but mark assets phase blocked): Higgsfield
-  MCP tools reachable.
+  MCP tools reachable — also read the credit balance so the design plan's
+  ceiling can be proposed against a real number.
 - OPTIONAL (warn only): remotion/hyperframes skills (custom video — out of
   scope v0.1), ffmpeg on PATH (scroll-video frames) — becomes CORE if the
   approved design plan's signature moment uses scroll-video (re-check at the
@@ -62,13 +63,16 @@ Invoke skill `build-recipes` with DESIGN.md + design plan + script.
 
 ## 4. Assets
 Invoke skill `assets` for every slot in the design plan. If blocked
-(preflight), leave placeholders and mark in report.
+(preflight), leave placeholders and mark in report. The asset phase runs its
+own cost preflight against the ceiling approved with the plan and stops if it
+would exceed it.
 
 ## 5. Verify
 Invoke skill `verify`. Mandatory — an unverified build is not done.
 
 ## 6. Final report
-What was built (per section); verify score + pending; assets per slot;
-drift applied; copy decisions (awareness stage, arc used, VoC quotes swiped);
-retro-sync suggestions (drift worth promoting to the brand
-source — the human decides and executes; this plugin never writes there).
+What was built (per section); verify score + pending; assets per slot,
+credits spent vs the approved ceiling; drift applied; copy decisions
+(awareness stage, arc used, VoC quotes swiped); retro-sync suggestions (drift
+worth promoting to the brand source — the human decides and executes; this
+plugin never writes there).

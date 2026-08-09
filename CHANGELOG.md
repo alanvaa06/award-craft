@@ -9,6 +9,18 @@
 - Mixed ES/EN surface (templates + golden brief in Spanish)
 - Preflight install instructions live only in README
 
+## [0.5.0] - 2026-08-06
+### Added
+- Credit ceiling folded into the existing design-plan gate: direction proposes a maximum credit spend for the asset phase, the human approves it together with the plan — still one gate, no new stop in the common path
+- Mandatory cost preflight in the asset phase (`balance` + `get_cost` per slot) with a hard stop when the total would exceed the approved ceiling, the balance, or when no ceiling exists
+- Cumulative spend tracked in the iteration log; regeneration rounds that would cross the ceiling re-trigger the stop
+- Free-trial unlimited generations are never spent silently: `use_unlim` is omitted so the server's `unlim_choice` question reaches the human verbatim
+- Credits spent vs ceiling reported in the final report and the verify report
+### Measured
+- Cost reference measured 2026-08-06 with `get_cost` (no jobs submitted): 16:9 image = 1 credit; 5s 16:9 video = 32.5 credits. Video slots set the ceiling
+### Unverified
+- Reference-Element creation and media uploads are assumed free (not generations) and excluded from the preflight sum — confirm on the first real run; if they do cost, the ceiling stop fires late
+
 ## [0.4.0] - 2026-08-06
 ### Added
 - Reference Elements as the first phase of the asset pipeline: reusable characters/environments/props created from real images and injected via `<<<element_id>>>`, so slots share a locked look instead of each landing on the model's statistical average

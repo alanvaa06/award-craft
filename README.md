@@ -131,12 +131,15 @@ that.
     │  incl. awareness stage and your verbatim wording
     ▼
  design plan + script ══════ GATE — human approval, only one ═══════════════
-    │  look, motion, voice, section copy, signature moment on the climax
+    │  look, motion, voice, section copy, signature moment on the climax,
+    │  credit ceiling for the asset phase approved with the plan
     │  DESIGN.md written on approval
     ▼
  build (recipes)
     ▼
- assets (Higgsfield MCP — visual-DNA brief per slot)
+ assets
+    │  Higgsfield MCP — visual-DNA brief per slot; cost preflight hard-stops
+    │  if the ceiling or balance would be exceeded
     ▼
  verify (mandatory, never skipped)
     │  build → screenshot desktop+mobile → critique vs checklist → fix →
@@ -182,6 +185,7 @@ Semantic versioning — see [CHANGELOG.md](CHANGELOG.md).
 | v0.2 | Calibration dials, design read, layout/copy checks 13-18, elevate lever ordering |
 | v0.3 | The narrative layer: gated script, verbal identity, copy doctrine, checks 19-21 |
 | v0.4 | Art-directed assets: reference elements, shot specs at the gate, model routing, checks 22-23 |
+| v0.5 | Credit ceiling approved at the gate; cost preflight with hard stop |
 
 Scope and NO-goals: [v0.1 design](docs/superpowers/specs/2026-08-06-award-craft-design.md) ·
 [v0.2 taste-skill integration](docs/superpowers/specs/2026-08-06-taste-skill-integration.md).

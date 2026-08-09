@@ -63,3 +63,6 @@ Asset direction checks (per set):
     image on the page; locked elements (environment, product, prop, person)
     are visually identical wherever they recur. Mixed light directions across
     sections is the most common tell of ad-hoc AI generation.
+
+Cost note (not a numbered check): the verify report states credits spent on
+assets versus the ceiling approved with the design plan.

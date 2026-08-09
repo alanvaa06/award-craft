@@ -38,11 +38,11 @@ const SKILLS = [
   { path: 'skills/elevate/SKILL.md', name: 'elevate',
     markers: ['Preflight', 'Gap-analysis', 'GATE', 'verify', 'antes/después'] },
   { path: 'skills/direction/SKILL.md', name: 'direction',
-    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials', 'Verbal identity'] },
+    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials', 'Verbal identity', 'Credit ceiling'] },
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
-    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements'] },
+    markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements', 'Cost preflight'] },
   { path: 'skills/verify/SKILL.md', name: 'verify',
     markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile'] },
 ];

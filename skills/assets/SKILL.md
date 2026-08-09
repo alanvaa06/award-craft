@@ -8,6 +8,37 @@ description: Generate and integrate all landing media via Higgsfield MCP from DE
 Higgsfield MCP is the ONLY generator in v0.1. If its tools are unavailable,
 STOP and report — do not substitute another generator.
 
+## Cost preflight — the hard stop
+
+Run this before generating anything, every time.
+
+1. `balance` — read the caller's available credits.
+2. `get_cost: true` on each planned slot generation (it prices the call without
+   submitting). Sum them.
+   ASSUMPTION, not verified: Reference-Element creation and media uploads are
+   treated as free (they are not generations). Confirm this on the first real
+   run — if they do consume credits, the sum undercounts and the ceiling stop
+   fires late.
+3. Compare the total against the CREDIT CEILING approved with the design plan
+   (recorded in DESIGN.md under Asset slots).
+
+- Total within ceiling AND within balance → proceed, no interruption. This is
+  the normal path; do not ask for permission you were already given.
+- Total exceeds the ceiling, OR exceeds the balance, OR no ceiling exists in
+  DESIGN.md → **STOP**. Present a table (slot · model · unit cost · count ·
+  subtotal · running total), state the ceiling and the balance, and ask the
+  human how to proceed. Never spend past an approved ceiling.
+- A regeneration round that would push cumulative spend past the ceiling
+  re-triggers the same stop. Track cumulative spend in the iteration log.
+
+**Unlimited generations are never spent silently.** Omit `use_unlim` and let
+the server decide: if it returns `unlim_choice`, put that question to the human
+verbatim before anything is spent. Pass `use_unlim: true` only when the human
+explicitly asks for it — never on your own initiative to save them credits, and
+remember it caps `count` to 1.
+
+Report actual credits spent against the ceiling in the final report.
+
 ## Phase 0 — Reference Elements FIRST (the anti-generic lever)
 
 Generating from text alone lands on the model's statistical average, which IS
@@ -94,8 +125,8 @@ assets. Calling it wastes a round trip.
   when you want alternatives to choose between.
   For slots with DIFFERENT prompts use `generate_image_batch` — do not loop
   single calls.
-- `get_cost: true` preflights credits; run it before any batch over ~4 images
-  or any video set, and report the number before spending.
+- `get_cost: true` prices a call without submitting it; the cost preflight
+  above is mandatory, not advisory.
 - Iterate ONE variable at a time between rounds.
 - Loops: first-frame = last-frame technique; static camera locked; abstract
   subjects only (gradients/smoke/liquid) — no people, no readable objects.
@@ -114,7 +145,8 @@ never ship the least-bad frame.
 ## Iteration log
 Append every round to `docs/assets-log.md` in the target repo:
 slot · model resolved · prompt · element ids used · candidate count ·
-which one was picked and the one-line reason. It prevents repeating a
+which one was picked and the one-line reason · credits spent this round and
+the cumulative total against the ceiling. It prevents repeating a
 generic attempt and gives the human something to argue with.
 
 ## Post + integration
