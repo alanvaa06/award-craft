@@ -30,4 +30,4 @@ This document is what the human approves at the gate before build begins.
 <!-- Core identity INHERITS (palette, typography families, voice/tone, anti-references). Landing-specific MAY drift (signature moment, per-section tokens, motion timings, one accent color). EVERY drift: what changed, why. -->
 
 ## Asset slots
-<!-- Every media slot: name + ratio, plus a shot spec (subject, camera angle/position, lens, lighting setup, moment, negative-space zone for UI overlay). Name which slots share a locked element (environment, product, prop, person) — those become Reference Elements before generation. -->
+<!-- Every media slot: name + ratio, plus a shot spec (subject, camera angle/position, lens, lighting setup, moment, negative-space zone for UI overlay). Name which slots share a locked element (environment, product, prop, person) — those become Reference Elements before generation. Close with a CREDIT CEILING line: max Higgsfield credits for the asset phase, derived from slot count and video-slot count (video dominates cost) — human confirms or changes it at the gate. -->

@@ -26,6 +26,8 @@ Medium / Lighting / Grade / Texture / Mood / Never-list
 |---|---|---|---|
 {{one row per media slot}}
 
+Credit ceiling: {{approved credits for the asset phase}}
+
 ## Drift vs brand source
 {{inherited core: palette, type, voice, anti-refs — list each drift + reason,
 or "sin drift"}}

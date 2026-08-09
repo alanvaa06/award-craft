@@ -34,6 +34,9 @@ typography refresh + copy rewrites (headline/CTA/banned language — same tier:
 highest lift, lowest risk) → spacing & rhythm → color recalibration → motion
 layer → hero and key-section recomposition → full block replacement (last resort).
 Never silently change slugs, nav labels, form field names, or legal copy.
+If the approved items require new assets, the same credit ceiling rule
+applies — propose the ceiling with the elevation plan and stop before
+exceeding it.
 (Lever order distilled from taste-skill, MIT.)
 
 ## 5. Verify — invoke skill verify. Mandatory.
