@@ -80,7 +80,7 @@ sections:
 
    Run `get_cost: true` (it prices without submitting) on one representative
    video slot for three candidate configs and present them as a menu with the
-   real numbers, cheapest first. Reference shape, measured 2026-08-06 — RE-MEASURE,
+   real numbers, cheapest first. Reference shape, measured 2026-08-08 — RE-MEASURE,
    do not quote these:
    | Tier | Config | Measured |
    |---|---|---|

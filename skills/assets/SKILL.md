@@ -47,7 +47,7 @@ Report actual credits spent against the ceiling in the final report.
 
 ## Cost levers — what actually moves the bill
 
-Measured 2026-08-06 with `get_cost` (no jobs submitted), one 16:9 clip.
+Measured 2026-08-08 with `get_cost` (no jobs submitted), one 16:9 clip.
 Prices drift: re-measure rather than quoting these.
 
 | Lever | Effect | Evidence |
