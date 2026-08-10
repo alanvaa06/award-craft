@@ -29,6 +29,13 @@ Self-check every render before showing it:
 - Does it read as a photograph or scene with some text on it? → not a comp.
 - Can you point at the nav, the headline block, the primary action, and the
   section boundary? → it is a comp.
+- **Read the headline back word by word.** It is the one string a comp must
+  render exactly, and long headlines — especially in a language other than
+  English — come back with a word duplicated or dropped often enough to check
+  every time (observed: "mas alto / alto que la niebla"). A garbled headline
+  gets that comp regenerated, not explained away at the gate.
+- Does any region contain a number, price, date or measurement nobody supplied?
+  → regenerate; that is an invented claim, not a rendering flaw.
 
 ## Prompt shape — layout first
 
