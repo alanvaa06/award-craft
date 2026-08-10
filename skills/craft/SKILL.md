@@ -41,6 +41,15 @@ Brand source resolution, in order:
 ALWAYS ask comprehension questions (even with docs): offer, audience, primary
 CTA, tone (3 adjectives), visual references/anti-references, which script
 section is the climax (signature-moment candidate). One question at a time.
+
+   Comp authorization — ask it here, in the intake round, so it never becomes a
+   second stop. Skip the question entirely when preflight marked Higgsfield
+   unreachable (nothing to authorize) and note the skip for the report: "before the gate I can render three pictures of the first
+   viewport so you approve a composition you have actually seen, not a text
+   sketch — about 3 credits (price it with `get_cost` and quote the real number
+   and the balance). Yes or no?" Yes is the default worth recommending. Record
+   the answer; direction runs or skips Pass 1.5 on it. This allowance is
+   separate from the asset credit ceiling approved at the gate.
 If docs + answers leave gaps → deep interview until PRODUCT.md writes with no
 holes. Write PRODUCT.md from ${CLAUDE_PLUGIN_ROOT}/templates/PRODUCT.md.template.
 If script and brand source contradict: surface it, propose a resolution,
@@ -63,13 +72,19 @@ let the gate decide.
    RULE: the narrative climax and the signature moment are THE SAME SECTION —
    the page's peak of tension is where the animation budget is spent.
 
-## 2. Design plan → GATE
-Invoke skill `direction`. Present the plan and the guión (script + copy
-drafts). ═══ STOP for human approval — both artifacts approved together ═══
-Iterate on feedback. On approval: DESIGN.md written; proceed.
+## 2. Design plan + comps → GATE
+Invoke skill `direction`. It produces the plan and, when the comp spend was
+authorized at intake and Higgsfield is reachable, three rendered compositions of
+the first viewport. Present the plan, the guión (script + copy drafts) and the
+three comps together. ═══ STOP for human approval — plan, script and
+composition decided in one stop ═══
+Iterate on feedback. On approval: DESIGN.md written, the approved comp and its
+fidelity inventory recorded in the design plan; proceed.
 
 ## 3. Build
-Invoke skill `build-recipes` with DESIGN.md + design plan + script.
+Invoke skill `build-recipes` with DESIGN.md + design plan + script + the
+approved comp when one exists (the comp changes the build order — reproduction
+first, motion second).
 
 ## 4. Assets
 Invoke skill `assets` for every slot in the design plan. If blocked
@@ -81,7 +96,9 @@ would exceed it.
 Invoke skill `verify`. Mandatory — an unverified build is not done.
 
 ## 6. Final report
-What was built (per section); verify score + pending; assets per slot,
+What was built (per section); the comp round (which comp was approved and why,
+or that it was skipped and for which reason — never let a wireframe-only
+approval read as an approved composition); verify score + pending; assets per slot,
 credits spent vs the approved ceiling, the approved video tier and any
 per-slot overrides used; drift applied; copy decisions (awareness stage, arc
 used, VoC quotes swiped); retro-sync suggestions (drift worth promoting to the

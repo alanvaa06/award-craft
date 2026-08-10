@@ -139,6 +139,10 @@ Mirrored machine-side in `.impeccable/design.json` under `extensions.motion`.
 
 Medium / Lighting / Grade / Texture / Mood / Never-list
 
+Approved comp: {{docs/comps/comp-N.png, or "none — built from the wireframe"}} —
+{{one line on what it committed to}}. Fidelity inventory: `docs/design-plan.md`
+§ Comps.
+
 ## Asset slots
 
 | slot | ratio | medium | subject | camera (angle/position) | lens | lighting | moment | negative space | locked element | file |

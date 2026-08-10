@@ -20,7 +20,9 @@ signature moment, everything else quiet and disciplined.
   `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/trends.md`,
   `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/copywriting.md`
   (copy doctrine: PAS arc, awareness stages, hero tests, micro-copy, banned
-  language)
+  language),
+  `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/comps.md`
+  (the comp round — prompt shape, variation axes, fidelity inventory)
 
 ## Pass 1 — the design plan (before ANY code)
 Produce `docs/design-plan.md` in the target repo, starting from
@@ -116,14 +118,45 @@ sections:
 - EVERY drift gets a line under "Drift vs brand source": what changed, why.
   The human approves drift consciously at the gate — never by accident.
 
+## Pass 1.5 — comps (three rendered compositions, before any code)
+
+Run this whenever Higgsfield is reachable AND the comp spend was authorized at
+intake. Load
+`${CLAUDE_PLUGIN_ROOT}/skills/direction/references/comps.md` and follow it.
+
+Short form: render THREE 16:9 comps of the first viewport, world fixed (same
+palette, type and material language in all three — this round tests structure,
+not identity), each testing one named axis (topology / sequence / density /
+hierarchy / focal composition / signature placement). Prompt LEADS with the
+layout scaffold, region by region with scale relationships — a prompt that opens
+with atmosphere returns a poster, not a page. Only the real product name and one
+real headline are legible; everything else is greeked, because invented prices
+or specs in a comp are claims PRODUCT.md never made. Save to `docs/comps/`, log
+prompts and costs in `docs/comps/comps.md`. Three images ≈ 3 credits — inside
+the comp allowance approved at intake, and counted separately from the asset
+ceiling.
+
+The comps are NOT a second gate: they are shown WITH the plan at the one gate
+below. No authorization or no Higgsfield → skip the round and say so in the
+report; a wireframe-only approval must never be reported as an approved
+composition.
+
 ## Pass 2 — self-critique, then gate
 Before presenting: test the plan against the brief; kill anything that reads as
 a generic default (Inter, purple gradients, three-card rows, centered symmetric
 hero). Check one aesthetic risk exists and surroundings are quiet.
 Check the copy against the banned-language test: could a competitor claim this
 exact header? If yes, rewrite.
-Then STOP and present the plan for human approval. Do not proceed to build
+Then STOP and present the plan for human approval — together with the three
+comps when the round ran, each labelled with the axis it tests, and the three
+questions from comps.md (which composition carries forward, what feels false,
+is the plan approved). One decision, one stop. Do not proceed to build
 yourself — the orchestrator does.
+
+On approval, write the fidelity inventory into the plan's `## Comps` section
+before handing off: component grammar, type ramp, region inventory with a
+MEDIUM each, and quantity commitments (comps.md § After approval). The build
+reads that inventory, not the picture alone.
 
 ## On approval — write DESIGN.md (shared file, spec format)
 
@@ -143,6 +176,9 @@ spec shape, and obey the contract:
 - **award-craft's production data goes in the extension sections at the bottom**
   (Motion identity, Art direction, Asset slots, Drift vs brand source,
   Craft-floor overrides). Unknown sections are preserved by the format.
+  `## Art direction` closes with the approved comp: its path and one line on
+  what it committed to. The full fidelity inventory stays in the design plan's
+  `## Comps` section — one source, referenced from here, never copied.
 - **Write the sidecar too:** `.impeccable/design.json`, `schemaVersion: 2`, with
   `extensions.motion` (signature/exit/emphasized eases + duration bands),
   `extensions.shadows`, `extensions.breakpoints`, `extensions.colorMeta`

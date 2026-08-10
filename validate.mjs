@@ -38,13 +38,13 @@ const SKILLS = [
   { path: 'skills/elevate/SKILL.md', name: 'elevate',
     markers: ['Preflight', 'Gap-analysis', 'GATE', 'verify', 'antes/después'] },
   { path: 'skills/direction/SKILL.md', name: 'direction',
-    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials', 'Verbal identity', 'Credit ceiling', 'Video tier'] },
+    markers: ['two-pass', 'signature moment', 'Drift vs brand source', 'tokens', 'motion identity', 'Calibration dials', 'Verbal identity', 'Credit ceiling', 'Video tier', 'comps'] },
   { path: 'skills/build-recipes/SKILL.md', name: 'build-recipes',
     markers: ['Lenis', 'reduced-motion', 'anti-patterns', 'placeholders', 'ratio'] },
   { path: 'skills/assets/SKILL.md', name: 'assets',
     markers: ['Higgsfield', 'DESIGN.md', 'slot', 'WebP', 'Naming', 'Reference Elements', 'Cost preflight', 'Cost levers', 'Refine mode'] },
   { path: 'skills/verify/SKILL.md', name: 'verify',
-    markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile'] },
+    markers: ['screenshot', 'checklist', 'verified_', '3 iterations', 'mobile', 'SIDE-BY-SIDE'] },
 ];
 for (const s of SKILLS) {
   if (!existsSync(s.path)) { fail(`${s.path} missing`); continue; }
@@ -65,6 +65,7 @@ const REFS = [
   'skills/direction/references/motion-system.md',
   'skills/direction/references/trends.md',
   'skills/direction/references/copywriting.md',
+  'skills/direction/references/comps.md',
   'skills/build-recipes/references/lenis-setup.md',
   'skills/build-recipes/references/scrolltrigger-patterns.md',
   'skills/build-recipes/references/scroll-video.md',
@@ -113,12 +114,12 @@ ok('minimum sizes checked');
 const dp = readFileSync('templates/design-plan.template.md', 'utf8');
 for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Verbal identity',
                  '## Calibration dials', '## Art direction', '## Craft-floor overrides',
-                 '## Wireframe', '## Signature moment',
+                 '## Comps', '## Wireframe', '## Signature moment',
                  '## Drift vs brand source', '## Asset slots'])
   if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
 const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
 const numbered = cl.match(/^\d+\./gm) || [];
-if (numbered.length !== 25) fail(`checklist.md: expected 25 numbered checks, found ${numbered.length}`);
+if (numbered.length !== 27) fail(`checklist.md: expected 27 numbered checks, found ${numbered.length}`);
 ok('content contracts checked');
 
 // 7b. DESIGN.md template must stay DESIGN.md-spec compatible (impeccable v4 reads it).

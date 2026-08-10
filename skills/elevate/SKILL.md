@@ -30,6 +30,13 @@ lift, lowest risk).
 ## 3. Elevation plan → GATE
 Prioritized items (impact vs effort), each: what changes, which recipe
 applies, expected checklist deltas. ═══ STOP: human picks items ═══
+**Overhaul mode only:** offer the comp round with the plan — three rendered
+compositions of the new first viewport (~3 credits, priced with `get_cost`),
+so the human approves a composition instead of a description. Follow
+${CLAUDE_PLUGIN_ROOT}/skills/direction/references/comps.md; elevate never
+invokes direction, so run it here. Preserve mode does not comp: the incumbent
+composition is the reference, and rendering alternatives invites a redesign
+nobody asked for.
 
 ## 4. Apply approved items using ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes (same rules).
 Apply modernization levers in this order (highest lift / lowest risk first):

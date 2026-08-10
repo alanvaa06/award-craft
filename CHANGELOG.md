@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### Added — comp round (three rendered compositions before any code)
+- `direction` Pass 1.5 renders THREE 16:9 comps of the first viewport with the visual world held fixed (same palette, type and material language in all three) — the round tests structure, not identity, and each comp is labelled with the one axis it tests: topology, sequence, density, hierarchy, focal composition or signature placement
+- New reference `direction/references/comps.md`: prompt shape (layout scaffold FIRST — the deliberate inversion of prompting.md's front-load-the-subject rule, because for a comp the layout is the subject), the poster self-check, the greeking rule that keeps invented prices and specs out of a comp, generation and logging
+- **Still one gate.** The comp spend (~3 credits, priced live) is authorized during the intake questions, so the comps arrive AT the existing design-plan gate rather than adding a stop. The human approves plan, script and composition in one decision
+- After approval, a fidelity inventory is recorded in the design plan's new `## Comps` section: component grammar, type ramp and compression class, region inventory with a `produce`/`direct`/`semantic` medium each, and quantity commitments for dense fields. The build reads the inventory, not the picture alone
+- `build-recipes` gains a reproduction phase when a comp exists: rebuild the first viewport at the comp's width and compare screenshots side by side before any motion — the comparison is the authority, never the model's conviction that the recreation worked. A region that keeps losing becomes a produced asset instead of more CSS
+- `verify` critiques comp vs build per section as its own crop at legible scale (never one full-page thumbnail) and checks that no `produce` region was silently downgraded to a gradient (new checks 24-25)
+- `elevate` offers the round in Overhaul mode only; Preserve mode does not comp, because rendering alternatives to an incumbent composition invites a redesign nobody asked for
+- Degraded path is explicit: no authorization or no Higgsfield → skip and say so in the report; a wireframe-only approval is never reported as an approved composition
+
 ### Changed — impeccable v4 interop (P0)
 - `DESIGN.md` is now written in the shared [DESIGN.md spec](https://github.com/google-labs-code/design.md) format that impeccable v4 reads, drift-checks and rewrites: YAML token frontmatter (normative) + the eight canonical sections in order, with award-craft's production data (motion identity, art direction, asset slots, drift, craft-floor overrides) confined to clearly-marked extension sections below them. Verified against impeccable's own `design-parser.mjs`
 - Motion, shadows, breakpoints and narrative are mirrored to the `.impeccable/design.json` sidecar (`schemaVersion: 2`) — the layer the 8-prop component schema cannot hold
