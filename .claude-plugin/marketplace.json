@@ -1,12 +1,12 @@
 {
   "name": "award-craft",
-  "description": "Award Craft — Awwwards-level landing page builder: guided intake, design-plan gate, recipe-driven build, Higgsfield assets, mandatory visual verify.",
+  "description": "Award Craft — Awwwards-level landing page builder: guided intake, three rendered comps approved at a single design-plan gate, recipe-driven build, Higgsfield assets, mandatory visual verify.",
   "owner": { "name": "Alan Vazquez", "email": "alanvaa.06@gmail.com" },
   "plugins": [
     {
       "name": "award-craft",
       "source": "./",
-      "description": "Builds and elevates Awwwards-level landing pages with GSAP/Lenis scroll craft, Higgsfield MCP assets, and a quantitative visual verify loop."
+      "description": "Builds and elevates Awwwards-level landing pages with GSAP/Lenis scroll craft, Higgsfield MCP assets, and a quantitative visual verify loop. You approve a rendered composition, not a description. Requires impeccable v4+, with which it shares PRODUCT.md and DESIGN.md."
     }
   ]
 }
