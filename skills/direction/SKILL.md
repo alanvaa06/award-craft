@@ -20,7 +20,9 @@ signature moment, everything else quiet and disciplined.
   `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/trends.md`,
   `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/copywriting.md`
   (copy doctrine: PAS arc, awareness stages, hero tests, micro-copy, banned
-  language)
+  language),
+  `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/comps.md`
+  (the comp round — prompt shape, variation axes, fidelity inventory)
 
 ## Pass 1 — the design plan (before ANY code)
 Produce `docs/design-plan.md` in the target repo, starting from
@@ -55,7 +57,12 @@ sections:
    governs the spacing scale). Baseline for award-tier landings: 8 / 6 / 4.
    Dials are landing-specific — they may drift freely from any brand source.
 5. **Art direction** — medium, lighting recipe, grade, texture, mood; explicit
-   anti-references (what this must NOT look like).
+   anti-references (what this must NOT look like). Follow it with a
+   **Craft-floor overrides** section: any device on impeccable's refuse list
+   that this landing will use anyway (grain/`feTurbulence`, viewport-scale display type above 6rem,
+   mono labels, section indices, glass, CSS textures), each with the reason the
+   brief earns it — see `${CLAUDE_PLUGIN_ROOT}/skills/direction/references/trends.md`
+   §0. Nothing named there = the floor holds and verify flags the device.
 6. **Wireframe** — ASCII wireframe per script section, in script order. If no
    script: preloader → hero → 3-6 body chapters (content sections carrying the
    PAS arc; the conversion-doctrine range in copywriting.md) → interactive footer
@@ -68,7 +75,13 @@ sections:
 9. **Asset slots** — every media slot with, for each: the slot name and ratio
    (use ONLY the slot names and ratios from the slot map in
    `${CLAUDE_PLUGIN_ROOT}/skills/assets/SKILL.md` — the authoritative contract),
-   plus a SHOT SPEC: subject, camera angle and position, lens, lighting setup,
+   a MEDIUM (`produce` = raster to generate · `direct` = real asset the client
+   supplies · `semantic` = built in HTML/CSS/SVG/canvas). Decide the medium from
+   what the slot shows, never from what feels buildable: anything with lighting,
+   depth, a figure, or a named material texture (cloth, paper grain, metal) is
+   `produce` whatever the stack — "layered CSS texture" is not a medium and is
+   how an approved art direction silently becomes a flat page.
+   Then a SHOT SPEC: subject, camera angle and position, lens, lighting setup,
    the moment being captured, and where the negative space sits for UI overlay.
    Also name which slots share a LOCKED ELEMENT (environment, product, prop or
    person that must be identical across slots) — those become Reference Elements
@@ -105,16 +118,81 @@ sections:
 - EVERY drift gets a line under "Drift vs brand source": what changed, why.
   The human approves drift consciously at the gate — never by accident.
 
+## Pass 1.5 — comps (three rendered compositions, before any code)
+
+Run this whenever Higgsfield is reachable AND the comp spend was authorized at
+intake. Load
+`${CLAUDE_PLUGIN_ROOT}/skills/direction/references/comps.md` and follow it.
+
+Short form: render THREE 16:9 comps of the first viewport, world fixed (same
+palette, type and material language in all three — this round tests structure,
+not identity), each testing one named axis (topology / sequence / density /
+hierarchy / focal composition / signature placement). Prompt LEADS with the
+layout scaffold, region by region with scale relationships — a prompt that opens
+with atmosphere returns a poster, not a page. State that the image IS the
+viewport, edge to edge. Bind every legible string to its region (wordmark reads
+X, headline reads Y, button reads Z, everything else lorem ipsum filler) and
+never write the word "greeked" in a prompt — it comes back rendered as content.
+Pass PRODUCT.md's anti-references verbatim, and name the nav items or say there
+is no nav, or the model fills the gap with the category default. Save to
+`docs/comps/`, log prompts, executed model and costs in `docs/comps/comps.md`.
+Three images ≈ 4-6 credits (text-capable models cost more than photo slots) —
+inside the comp allowance approved at intake, counted separately from the asset
+ceiling.
+
+The comps are NOT a second gate: they are shown WITH the plan at the one gate
+below. No authorization or no Higgsfield → skip the round and say so in the
+report; a wireframe-only approval must never be reported as an approved
+composition.
+
 ## Pass 2 — self-critique, then gate
 Before presenting: test the plan against the brief; kill anything that reads as
 a generic default (Inter, purple gradients, three-card rows, centered symmetric
 hero). Check one aesthetic risk exists and surroundings are quiet.
 Check the copy against the banned-language test: could a competitor claim this
 exact header? If yes, rewrite.
-Then STOP and present the plan for human approval. On approval, write
-`DESIGN.md` in the target repo from
-`${CLAUDE_PLUGIN_ROOT}/templates/DESIGN.md.template`. Do not proceed to build
+Then STOP and present the plan for human approval — together with the three
+comps when the round ran, each labelled with the axis it tests, and the three
+questions from comps.md (which composition carries forward, what feels false,
+is the plan approved). One decision, one stop. Do not proceed to build
 yourself — the orchestrator does.
+
+On approval, write the fidelity inventory into the plan's `## Comps` section
+before handing off: component grammar, type ramp, region inventory with a
+MEDIUM each, and quantity commitments (comps.md § After approval). The build
+reads that inventory, not the picture alone.
+
+## On approval — write DESIGN.md (shared file, spec format)
+
+`DESIGN.md` is NOT award-craft's private file. impeccable v4 reads it
+(`context.mjs` / `design-parser.mjs`), drift-checks it (`$impeccable doctor`)
+and rewrites it (`document`, documenter agent). Write it from
+`${CLAUDE_PLUGIN_ROOT}/templates/DESIGN.md.template`, which is the DESIGN.md
+spec shape, and obey the contract:
+
+- **YAML token frontmatter is normative** — palette, type roles, radii, spacing,
+  component tokens live there; build-recipes reads tokens from there, not prose.
+  Parser limits: 2-space indent, one nesting level, NO arrays, no multi-line
+  scalars, component sub-tokens limited to the 8 allowed props.
+- **The eight canonical sections keep their names and order**: Overview, Colors,
+  Typography, Layout, Elevation & Depth, Shapes, Components, Do's and Don'ts.
+  Omit one rather than inventing rules for it.
+- **award-craft's production data goes in the extension sections at the bottom**
+  (Motion identity, Art direction, Asset slots, Drift vs brand source,
+  Craft-floor overrides). Unknown sections are preserved by the format.
+  `## Art direction` closes with the approved comp: its path and one line on
+  what it committed to. The full fidelity inventory stays in the design plan's
+  `## Comps` section — one source, referenced from here, never copied.
+- **Write the sidecar too:** `.impeccable/design.json`, `schemaVersion: 2`, with
+  `extensions.motion` (signature/exit/emphasized eases + duration bands),
+  `extensions.shadows`, `extensions.breakpoints`, `extensions.colorMeta`
+  (display names keyed by frontmatter token) and `narrative` (north star,
+  key characteristics, dos/donts). It carries what the 8-prop schema can't.
+- **NEVER silently overwrite an existing DESIGN.md.** If one exists — whoever
+  wrote it — show it, say whether it is impeccable-format or award-craft-format,
+  and offer: refresh (rewrite from the approved plan), merge (keep its canonical
+  sections, add/replace only the extension sections), or keep. The human picks.
+  An impeccable-written DESIGN.md is incumbent visual truth, not an empty slot.
 If the signature moment is scroll-video, state at the gate that ffmpeg
 becomes a CORE dependency.
 Present the video tier menu with live `get_cost` numbers and the derived credit

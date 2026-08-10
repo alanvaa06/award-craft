@@ -64,8 +64,39 @@ Asset direction checks (per set):
     are visually identical wherever they recur. Mixed light directions across
     sections is the most common tell of ad-hoc AI generation.
 
+Comp fidelity checks (only when a comp was approved — otherwise mark N/A and say
+so in the report; never silently drop them):
+24. Side-by-side per section: the comp region and the built region viewed
+    together, each as its own crop at legible scale. One full-page thumbnail
+    comparison does not count — it hides exactly the failures that matter
+    (crude controls, wrong lettering character, flattened material) behind a
+    similar-looking section order. Quantities are judged as quantities: a field
+    at a tenth of the comp's density, or type at half its weight, is a
+    different design, not a near miss.
+25. Every region the fidelity inventory marked `produce` ships as a real
+    raster; nothing was silently downgraded to a CSS gradient, a flat fill or
+    an omission. A `semantic` region that shipped as a raster fails too — it
+    flattens something that should scale, move or respond.
+
+Interop checks (per pass, code-level — not per screenshot):
+26. impeccable's detector runs clean on the changed targets:
+    `node <impeccable-base>/scripts/detect.mjs --json <targets>` reports no
+    unresolved finding. Its findings are the list — do not re-derive them by
+    eye, and do not run a second detector pass after fixing more than once.
+27. Craft-floor discipline: every device on impeccable's refuse list that the
+    build actually uses (grain/`feTurbulence`, viewport-scale display type
+    above 6rem, mono labels, section indices 01/02/03, glass/`backdrop-filter`,
+    generated CSS textures) appears in DESIGN.md's `## Craft-floor overrides`
+    with its reason. Used but unnamed = fail. Eyebrow/kicker above a heading,
+    gradient text and nested cards are not overridable — they fail outright.
+
 Cost note (not a numbered check): the verify report states credits spent on
 assets versus the ceiling approved with the design plan.
+
+Format note (not a numbered check): DESIGN.md still parses as the shared spec
+after the run — YAML token frontmatter present, the eight canonical sections in
+order, award-craft data confined to the extension sections. A DESIGN.md the
+next `$impeccable doctor` reports as drift is an unfinished handoff.
 
 Refine note (not a numbered check): when assets were refined from feedback, the
 report states which slots were refined, the feedback classification, and the

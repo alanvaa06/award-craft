@@ -9,7 +9,10 @@ mandatory visual verify loop — no page ships on "the build succeeded" alone.
 
 - Claude Code.
 - Skills [gsap-skills](https://github.com/greensock/gsap-skills) and
-  [impeccable](https://github.com/pbakaus/impeccable) installed.
+  [impeccable](https://github.com/pbakaus/impeccable) **v4 or later** installed.
+  award-craft shares `PRODUCT.md` and `DESIGN.md` with impeccable and runs its
+  detector during verify, so v4's file contract is a hard requirement — the
+  preflight reads impeccable's version and stops below 4.0.
 - Higgsfield MCP connected (asset generation — hero images, textures,
   background loops).
 - Optional: `ffmpeg` on PATH (scroll-video frame extraction — becomes required
@@ -35,6 +38,15 @@ git clone https://github.com/alanvaa06/award-craft
 /plugin marketplace add /path/to/award-craft
 /plugin install award-craft@award-craft
 ```
+
+> **Testing unreleased changes:** installed plugins are served from
+> `~/.claude/plugins/cache/award-craft/award-craft/<version>/`, NOT from your
+> working tree. Editing a skill on a branch and then running
+> `/award-craft:craft` silently runs the last installed version — the run looks
+> like a test of your changes and is not one. Either bump the version and
+> reinstall from the local marketplace, or follow the working-tree SKILL.md
+> files directly for the run. Check which copy is live: the skill announces its
+> base directory when it loads.
 
 ## Commands
 
@@ -81,8 +93,16 @@ directly when you only want that piece redone.
    Colors, motion feel, how the writing should read, the section-by-section
    copy, and the one signature moment — which sits on the story's climax, so
    the page's biggest animation lands on its biggest line. Push back here and
-   iterate: changing the plan is cheap, changing a built page is not. On
-   approval `DESIGN.md` is written and locked in.
+   iterate: changing the plan is cheap, changing a built page is not.
+   **You also get three rendered pictures of the first viewport** (unless you
+   declined the ~3 credits at intake) — same colors and type in all three, only
+   the composition differs, each labelled with what it tests. You pick the one
+   that gets built, or a combination. Approving a description you never saw is
+   how a page ends up "not what I pictured" after it is already coded. On
+   approval `DESIGN.md` is written and locked in — in the shared
+   [DESIGN.md spec](https://github.com/google-labs-code/design.md) format, so
+   impeccable reads the same file instead of fighting over it. An existing
+   `DESIGN.md` is never overwritten without asking.
 5. **Everything after runs on its own:** code, then images, then the verify
    loop. Watch it screenshot, grade, fix, and re-shoot.
 6. **Read the final report.** It flags where the landing drifted from your
@@ -123,27 +143,34 @@ that.
 
 ```
  preflight
-    │  (CORE: gsap-skills, impeccable — stop if missing)
+    │  (CORE: gsap-skills, impeccable v4+ — stop if missing or older)
     │  (asset CORE: Higgsfield MCP — warn + mark assets blocked)
     ▼
  intake
     │  script (@docs) or written for you + brand source (PRODUCT.md/DESIGN.md,
     │  --brand import, or interview) + comprehension questions, one at a time,
-    │  incl. awareness stage and your verbatim wording
+    │  incl. awareness stage, your verbatim wording, and the comp
+    │  authorization (~3 credits — asked here so it never becomes a second stop)
     ▼
- design plan + script ══════ GATE — human approval, only one ═══════════════
+ comps (3 rendered compositions of the first viewport, world fixed)
+    ▼
+ design plan + script + comps ══ GATE — human approval, only one ═══════════
     │  look, motion, voice, section copy, signature moment on the climax,
-    │  video tier menu (priced live) + credit ceiling approved with the plan
-    │  DESIGN.md written on approval
+    │  WHICH COMPOSITION gets built, video tier menu (priced live) + credit
+    │  ceiling approved with the plan
+    │  DESIGN.md written on approval + fidelity inventory recorded
     ▼
  build (recipes)
+    │  comp approved → reproduce the first viewport against it before any
+    │  motion; screenshot vs comp is the authority, not the model's conviction
     ▼
  assets
     │  Higgsfield MCP — visual-DNA brief per slot; cost preflight hard-stops
     │  if the ceiling or balance would be exceeded
     ▼
  verify (mandatory, never skipped)
-    │  build → screenshot desktop+mobile → critique vs checklist → fix →
+    │  build → screenshot desktop+mobile → critique vs checklist (+ impeccable's
+    │  detector, + section-by-section side-by-side against the comp) → fix →
     │  re-shoot → rename verified_ → loop (max 3/issue) → reduced-motion pass
     ▼
  report

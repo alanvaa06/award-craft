@@ -1,36 +1,234 @@
 ---
+name: {{project}}
+description: {{one-line tagline}}
+colors:
+  {{dominant-slug}}: "{{#hex}}"
+  {{accent-slug}}: "{{#hex}}"
+  {{surface-slug}}: "{{#hex}}"
+  {{ink-slug}}: "{{#hex}}"
+typography:
+  display:
+    fontFamily: "{{face, fallback stack}}"
+    fontSize: "{{clamp(...)}}"
+    fontWeight: {{400}}
+    lineHeight: {{0.95}}
+    letterSpacing: "{{-0.03em}}"
+  body:
+    fontFamily: "{{face, fallback stack}}"
+    fontSize: "{{1rem}}"
+    fontWeight: {{400}}
+    lineHeight: {{1.5}}
+    letterSpacing: "{{normal}}"
+  utility:
+    fontFamily: "{{face, fallback stack}}"
+    fontSize: "{{0.75rem}}"
+    fontWeight: {{500}}
+    letterSpacing: "{{0.06em}}"
+rounded:
+  sm: "{{4px}}"
+  md: "{{12px}}"
+spacing:
+  unit: "{{8px}}"
+  sm: "{{16px}}"
+  md: "{{32px}}"
+  lg: "{{96px}}"
+components:
+  button-primary:
+    backgroundColor: "{colors.{{accent-slug}}}"
+    textColor: "{colors.{{surface-slug}}}"
+    rounded: "{rounded.sm}"
+    padding: "{{16px 40px}}"
+---
+
+<!-- award-craft provenance
 source: {{brand_source_path | "created by award-craft direction"}}
 imported: {{date}}
 approved: {{date_gate}}
----
-# DESIGN — {{project}}
+-->
 
-## Palette
-{{4-6 named colors: `--name: #hex` — mark dominant vs accent}}
+# Design System: {{project}}
+
+<!--
+FORMAT CONTRACT — read before editing.
+This file follows the DESIGN.md spec (github.com/google-labs-code/design.md):
+YAML token frontmatter (NORMATIVE — code reads tokens from here) + the eight
+canonical H2 sections below, in this order. impeccable v4 reads this file
+(context.mjs / design-parser.mjs), `$impeccable doctor` drift-checks it, and its
+documenter writes the same shape.
+
+The H3 sub-headings and the bold micro-formats below are NOT decoration —
+impeccable's parser scrapes them, and prose that ignores them reads to its
+coverage check as an empty document. The four that matter, verbatim:
+  - `**Creative North Star: "..."**`  (closing ** AFTER the quote)
+  - `**Key Characteristics:**` on its own line, followed by a BULLET LIST
+  - named rules as bullets: `**The <Name> Rule.** <body>` — must start with
+    "The" and end in Rule / Fallback / Principle, in English, even in a
+    Spanish-language document
+  - colour bullets: `**Name** (#hex): description`
+  - font lines: `**Display Font:** Family (with fallbacks)`
+Frontmatter parser limits: 2-space indent, one nesting level, NO arrays, no
+multi-line scalars. Component sub-tokens are limited to backgroundColor,
+textColor, typography, rounded, padding, size, height, width — anything else
+(shadows, motion, focus rings, backdrop-filter) goes in .impeccable/design.json.
+award-craft's production data lives in the clearly-marked extension sections at
+the bottom. Omit a canonical section rather than inventing rules for it.
+-->
+
+## Overview
+
+**Creative North Star: "{{named metaphor for the whole system}}"**
+
+**Design read:** reading this as {{page kind}} for {{audience}}, with a {{vibe}}
+language, leaning toward {{system/aesthetic}}.
+
+{{2-3 sentences: mood, aesthetic philosophy, the physical scene the page is
+used in (who, where, under what light) that decided light vs dark}}
+
+**Key Characteristics:**
+- {{short phrase}}
+- {{short phrase}}
+- {{short phrase}}
+
+**Calibration dials:** DESIGN_VARIANCE {{n}}/10 · MOTION_INTENSITY {{n}}/10 ·
+VISUAL_DENSITY {{n}}/10 — {{one line on what each governs here}}
+
+**Anti-references:** {{what this must NOT look like — always includes generic
+SaaS template, stock photography, Inter + purple gradient}}
+
+## Colors
+
+{{one paragraph: the colour strategy — Restrained / Committed / Full palette /
+Drenched — and why the use scene earned it}}
+
+### Primary
+
+- **{{Descriptive Name}}** ({{#hex}}): {{character and where it carries the page.
+  State explicitly whether this is the DOMINANT or the ACCENT.}}
+
+### Neutral
+
+- **{{Descriptive Name}}** ({{#hex}}): {{ground, surface or ink, and its role}}
+
+### Named Rules
+
+- **The {{Name}} Rule.** {{e.g. the accent appears once per viewport, never as
+  a gradient, never as text emphasis}}
 
 ## Typography
-{{display face / body face / utility-mono face; scale: hero clamp() +
-body px + steps}}
+
+**Display Font:** {{Face}} (with {{fallbacks}})
+**Body Font:** {{Face}} (with {{fallbacks}})
+**Mono Font:** {{Face}} (with {{fallbacks}})
+<!-- Third-role label: use **Mono Font:** when the face is monospaced, otherwise
+     **Label Font:**. NEVER "**Utility Font:**" — impeccable only knows the roles
+     display / headline / body / ui / label / mono, and an unknown role falls
+     back to `display`, silently OVERWRITING the display face with this one. -->
+
+
+{{one paragraph on the register: which face carries the voice and why the
+others stay quiet}}
+
+### Hierarchy
+
+- **Display:** {{size / clamp, weight, tracking, where it is allowed to run at
+  viewport scale and where it is capped}}
+- **Body:** {{size, line height, measure in ch}}
+- **Utility:** {{size, tracking, and the exact job — measured data only}}
+
+### Named Rules
+
+- **The {{Name}} Rule.** {{the typographic rule this project keeps}}
+
+## Layout
+
+{{grid, container width, breakpoints, body measure (65-75ch), rhythm, and how
+the asymmetry from DESIGN_VARIANCE shows up in the composition}}
+
+## Elevation & Depth
+
+{{the elevation philosophy in one paragraph: flat, layered or lifted; ambient
+or structural. Elevation is declared ONCE per element — border or shadow.}}
+
+### Shadow Vocabulary
+
+- **{{name}}** (`{{value}}`): {{purpose — or state honestly that the system is
+  flat and layers tonally, and omit this sub-section}}
+
+## Shapes
+
+{{radius language, corner treatment, border weights, clipping/masking habits}}
+
+## Components
+
+### Buttons
+
+- **Primary:** {{shape, colour assignment, padding, hover/focus treatment}}
+- **Secondary:** {{...}}
+
+### Cards / Containers
+
+- {{shape, elevation, internal padding}}
+
+### Inputs / Fields
+
+- {{shape, states, focus treatment}}
+
+### Navigation
+
+- {{character, and the exact labels this page uses — the comp round needs them}}
+
+## Do's and Don'ts
+
+### Do:
+- {{project-specific rules earned by this world}}
+
+### Don't:
+- {{project-specific bans — start from the anti-references}}
+
+<!-- ===== award-craft extensions (non-canonical; ignored by DESIGN.md parsers) ===== -->
 
 ## Motion identity
+
 - Signature ease: `cubic-bezier({{...}})`  (adjectives: {{a, b, c}})
 - Exit ease: {{...}} · Emphasized: {{...}}
 - Durations: fast {{0.2s}} / base {{0.4s}} / slow {{0.8s}} / hero {{1.2s}}
 - Stagger unit: {{0.05s}}
+- Signature moment: {{section}} — {{technique}}
+
+Mirrored machine-side in `.impeccable/design.json` under `extensions.motion`.
 
 ## Art direction
+
 Medium / Lighting / Grade / Texture / Mood / Never-list
 
+Approved comp: {{docs/comps/comp-N.png, or "none — built from the wireframe"}} —
+{{one line on what it committed to}}. Fidelity inventory: `docs/design-plan.md`
+§ Comps.
+
 ## Asset slots
-| slot | ratio | subject | camera (angle/position) | lens | lighting | moment | negative space | locked element | file |
-|---|---|---|---|---|---|---|---|---|---|
+
+| slot | ratio | medium | subject | camera (angle/position) | lens | lighting | moment | negative space | locked element | file |
+|---|---|---|---|---|---|---|---|---|---|---|
 {{one row per media slot — the shot spec approved at the gate; refine mode writes
 direction-feedback changes back into these fields}}
+
+`medium` is one of `produce` (raster the build must generate), `direct` (a real
+asset supplied by the client, ships after conversion) or `semantic` (built in
+HTML/CSS/SVG/canvas — no raster). Anything with lighting, depth, a figure, or a
+named material texture is `produce`, whatever the stack.
 
 Video tier: {{tier name}} — {{model}} · {{duration}} · {{resolution}} · {{measured credits}} per clip
 Per-slot overrides: {{slot: model/params/cost, or "none"}}
 Credit ceiling: {{derived sum}} ({{video count}} video x {{tier cost}} + {{image count}} images x {{image cost}} + {{headroom}} headroom)
 
 ## Drift vs brand source
+
 {{inherited core: palette, type, voice, anti-refs — list each drift + reason,
 or "sin drift"}}
+
+## Craft-floor overrides
+
+{{Every device this landing uses that impeccable's craft-floor refuses by
+default (grain/feTurbulence, viewport-scale display type above 6rem, mono
+labels, section indices, glass, hard offset shadows), each with the reason the
+brief earns it. Empty = the floor holds. See trends.md §0.}}

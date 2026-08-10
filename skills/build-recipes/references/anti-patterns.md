@@ -53,11 +53,26 @@ Six questions for every proposed animation:
 Run every proposed animation through this gate before writing the
 ScrollTrigger for it, not after it feels wrong in review.
 
-## Already Covered by impeccable
+## Already Covered by impeccable (v4 craft floor + detector)
 
-impeccable lints these — don't duplicate the linting, just don't do them:
-Inter/Arial defaults, gray text on colored backgrounds, pure black/gray,
-cards nested in cards, bounce/elastic easing on UI.
+impeccable v4 ships `reference/craft-floor.md` and a detector
+(`scripts/detect.mjs --json`, which `verify` runs). Don't duplicate the linting
+— just don't do these:
+
+Inter/Arial and system display faces, gray text on colored backgrounds, pure
+black/gray, cards nested in cards, bounce/elastic easing on UI, gradient text,
+eyebrow/kicker above a heading, same-size icon+heading+text card rows as page
+structure, colored `border-left` above 1px, hard offset shadows outside a
+committed neobrutalist world, unicode/emoji standing in for icons, elevation
+declared twice (1px border under a wide soft shadow), tracking past -0.04em,
+sketch-style SVG scenes.
+
+Six craft-floor defaults COLLIDE with the Awwwards trend list (grain, CSS
+textures, viewport-scale display type, mono labels, section indices, glass).
+Those are overridable, but only through the design plan — see
+`${CLAUDE_PLUGIN_ROOT}/skills/direction/references/trends.md` §0 and DESIGN.md's
+`## Craft-floor overrides` section. A device used without being named there is a
+verify finding, not a style choice.
 
 ## Copy & layout tells (distilled from taste-skill, MIT)
 

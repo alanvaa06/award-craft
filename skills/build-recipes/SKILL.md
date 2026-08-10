@@ -16,8 +16,31 @@ pattern goes WHERE and the site-level wiring.
 2. Global wiring FIRST (${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/lenis-setup.md):
    Lenis on GSAP ticker, `lagSmoothing(0)`, single RAF loop.
    `html { scroll-behavior: auto !important }`.
-3. Tokens: DESIGN.md palette/type/spacing → Tailwind theme + CSS custom
-   properties (`--ease-out-brand`, `--dur-base`...). `gsap.defaults({ease, duration})`.
+3. Tokens: read them from **DESIGN.md's YAML frontmatter** (`colors`,
+   `typography`, `rounded`, `spacing`, `components`) — that layer is normative,
+   the prose sections are context. Motion tokens come from the `## Motion
+   identity` extension section (mirrored in `.impeccable/design.json` under
+   `extensions.motion`). Frontmatter → Tailwind theme + CSS custom properties
+   (`--ease-out-brand`, `--dur-base`...). `gsap.defaults({ease, duration})`.
+   Keep the CSS custom-property names equal to the frontmatter token slugs so
+   impeccable's detector and live panel resolve them.
+3b. **When an approved comp exists, the comp is king and the build runs in two
+   phases.** Phase one is REPRODUCTION, statics only: rebuild the first viewport
+   at the comp's own width, screenshot it at the comp's dimensions, and set the
+   two side by side. Materials, component character, elevation, scale
+   relationships and type silhouette must match; the only allowed concessions
+   are the closest obtainable font, the icon set, and genuine defects in the
+   comp. The comparison is the authority, never your conviction that the
+   recreation worked — models systematically believe HTML/CSS recreations
+   succeeded when they did not. A region that keeps losing the comparison stops
+   being recreated in code and becomes a `produce` asset composited into the
+   page. Prove the hero this way BEFORE building past it: every later section
+   inherits the hero's shortfall, and a five-minute retry here is what a rebuild
+   verdict at verify costs. Where the comp does not cover a section, build it
+   inside the fidelity inventory recorded in the design plan (§ Comps) — corner
+   language, line weights, materials, type ramp — never from stock defaults.
+   Only when reproduction holds does phase two (steps 4-7: motion, interaction,
+   responsive) begin. No comp → skip this step and build from the wireframe.
 4. Sections in SCRIPT ORDER, one at a time. Per section pick the pattern from
    ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/page-anatomy.md +
    ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/scrolltrigger-patterns.md.

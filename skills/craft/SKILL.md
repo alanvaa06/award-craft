@@ -10,7 +10,12 @@ Run phases IN ORDER. One human gate. Never skip verify.
 ## 0. Preflight
 Check and report before anything:
 - CORE (stop with install instructions if missing): gsap-skills skills
-  available; impeccable available.
+  available; **impeccable v4+** available. Resolve its base dir once and reuse
+  it (later phases need its scripts) — first hit of `.agents/skills/impeccable`,
+  `.claude/skills/impeccable`, `~/.claude/skills/impeccable`. Read `version:`
+  from its `SKILL.md` frontmatter: below 4.0 → stop and say so, because v4
+  changed the shared `DESIGN.md` contract this plugin now writes against.
+  Report the resolved path and version.
 - CORE for asset phase (continue but mark assets phase blocked): Higgsfield
   MCP tools reachable — also read the credit balance so the design plan's
   ceiling can be proposed against a real number.
@@ -23,14 +28,29 @@ Check and report before anything:
 Inputs (any combination): text brief; @docs (PRD, brand doc, landing script
 "guión" — script sections become the page structure); `--brand <path>` folder.
 Brand source resolution, in order:
-  a) PRODUCT.md / DESIGN.md in the target repo → use them.
+  a) PRODUCT.md / DESIGN.md in the target repo → use them. They are SHARED with
+     impeccable (its `init` writes PRODUCT.md, its `document`/documenter writes
+     DESIGN.md). Read whatever is there and never clobber it: append the
+     award-craft sections that are missing, leave the rest alone. An
+     impeccable-written DESIGN.md is the incumbent visual world — direction
+     treats it as a brand source with drift rules, not as an empty slot.
   b) External folder (--brand or ask) → IMPORT as local working copies with
-     provenance frontmatter (source path + imported date). NEVER write to the
-     business folder — it is a source, not a destination.
+     provenance (source path + imported date). NEVER write to the business
+     folder — it is a source, not a destination.
   c) Neither exists → create via interview.
 ALWAYS ask comprehension questions (even with docs): offer, audience, primary
 CTA, tone (3 adjectives), visual references/anti-references, which script
 section is the climax (signature-moment candidate). One question at a time.
+
+   Comp authorization — ask it here, in the intake round, so it never becomes a
+   second stop. Skip the question entirely when preflight marked Higgsfield
+   unreachable (nothing to authorize) and note the skip for the report: "before the gate I can render three pictures of the first
+   viewport so you approve a composition you have actually seen, not a text
+   sketch — roughly 4-6 credits (comps need a text-capable model, which costs
+   more than a photo slot; price it with `get_cost` and quote the real round
+   total and the balance, never the ~1 credit photo figure). Yes or no?" Yes is the default worth recommending. Record
+   the answer; direction runs or skips Pass 1.5 on it. This allowance is
+   separate from the asset credit ceiling approved at the gate.
 If docs + answers leave gaps → deep interview until PRODUCT.md writes with no
 holes. Write PRODUCT.md from ${CLAUDE_PLUGIN_ROOT}/templates/PRODUCT.md.template.
 If script and brand source contradict: surface it, propose a resolution,
@@ -53,13 +73,19 @@ let the gate decide.
    RULE: the narrative climax and the signature moment are THE SAME SECTION —
    the page's peak of tension is where the animation budget is spent.
 
-## 2. Design plan → GATE
-Invoke skill `direction`. Present the plan and the guión (script + copy
-drafts). ═══ STOP for human approval — both artifacts approved together ═══
-Iterate on feedback. On approval: DESIGN.md written; proceed.
+## 2. Design plan + comps → GATE
+Invoke skill `direction`. It produces the plan and, when the comp spend was
+authorized at intake and Higgsfield is reachable, three rendered compositions of
+the first viewport. Present the plan, the guión (script + copy drafts) and the
+three comps together. ═══ STOP for human approval — plan, script and
+composition decided in one stop ═══
+Iterate on feedback. On approval: DESIGN.md written, the approved comp and its
+fidelity inventory recorded in the design plan; proceed.
 
 ## 3. Build
-Invoke skill `build-recipes` with DESIGN.md + design plan + script.
+Invoke skill `build-recipes` with DESIGN.md + design plan + script + the
+approved comp when one exists (the comp changes the build order — reproduction
+first, motion second).
 
 ## 4. Assets
 Invoke skill `assets` for every slot in the design plan. If blocked
@@ -71,7 +97,9 @@ would exceed it.
 Invoke skill `verify`. Mandatory — an unverified build is not done.
 
 ## 6. Final report
-What was built (per section); verify score + pending; assets per slot,
+What was built (per section); the comp round (which comp was approved and why,
+or that it was skipped and for which reason — never let a wireframe-only
+approval read as an approved composition); verify score + pending; assets per slot,
 credits spent vs the approved ceiling, the approved video tier and any
 per-slot overrides used; drift applied; copy decisions (awareness stage, arc
 used, VoC quotes swiped); retro-sync suggestions (drift worth promoting to the
