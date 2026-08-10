@@ -1,6 +1,12 @@
 // validate.mjs — structural acceptance test for the award-craft plugin.
 // Dependency-free Node ESM. Exit 0 = all green, non-zero = failures.
-import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
+import { readFileSync as rawRead, existsSync, statSync, readdirSync } from 'node:fs';
+
+// Read text with line endings normalized. Git's autocrlf hands these files back
+// as CRLF on Windows checkouts, and every structural check below matches on LF
+// — without this the suite passes in the working tree and fails after a fresh
+// clone or merge, which is exactly when it matters.
+const readFileSync = (p, enc = 'utf8') => rawRead(p, enc).split('\r\n').join('\n');
 
 let failures = 0;
 const fail = (m) => { console.error('FAIL: ' + m); failures++; };
