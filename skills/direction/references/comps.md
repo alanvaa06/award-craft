@@ -40,27 +40,47 @@ in prompting.md about materials, lighting vocabulary and restraint still applies
 
 Order:
 
-1. **What it is.** "A desktop website landing page, full first viewport,
-   flat-on screenshot view, no device mockup, no browser chrome, no perspective."
+1. **What it is, and that the image IS the viewport.** "A desktop website
+   landing page, full first viewport, flat-on screenshot view, no device mockup,
+   no browser chrome, no perspective. The image is the viewport itself, edge to
+   edge — no surrounding canvas, margin, page border or drop shadow, and nothing
+   of the next section showing." Saying only "no browser chrome" is not enough:
+   models answer it with a page floating on a cream backdrop, which is a picture
+   of a website rather than the website.
 2. **The scaffold, region by region in vertical order, with scale relationships.**
-   Name only the regions this design actually has. A page with no navigation
-   says so instead of inventing one. Example shape: "thin utility bar across the
-   top; below it a headline block occupying the left two-thirds and roughly half
-   the viewport height; a single filled button beneath it; the right third held
-   by a full-bleed image running off the edge; a hairline rule and the first
-   words of the next section entering at the bottom."
+   Name only the regions this design actually has. A page with no navigation says
+   so instead of inventing one. Example shape: "thin utility bar across the top;
+   below it a headline block occupying the left two-thirds and roughly half the
+   viewport height; a single filled button beneath it; the right third held by a
+   full-bleed image running off the edge."
 3. **The world**: palette by name AND hex from the design plan's tokens, the
    display face's character (compression class, serif/sans/mono, weight), the
    material language, the grade.
 4. **Medium and finish**: "rendered as a high-fidelity web design comp, crisp
    vector-sharp UI edges, real photographic material only inside image regions".
-5. **Text rule** (always, verbatim intent): the only legible text is the real
-   product name and one real headline from the approved script. Every other text
-   region is greeked — indistinct lines standing where copy will go. A comp that
-   renders invented prices, specs, dates or testimonials puts a claim in front of
-   the human that PRODUCT.md never made.
+5. **The anti-references, verbatim from PRODUCT.md.** An unnamed region gets
+   filled from the model's average, and the average is the category default —
+   an unnamed utility bar comes back as SHOP / ABOUT / CART even when "generic
+   e-commerce" is the brief's stated anti-reference. Either name the real nav
+   items and the real CTA label, or state there is no navigation.
+6. **Text rule — bind every legible string to its region, and never use the
+   word "greeked".** Two failures, both observed:
+   - The instruction becomes content. "every other text region is greeked" comes
+     back rendered as the literal words *indistinct greeked lines of text*, and a
+     button labelled *greeked text*. Ask for the visual instead: "every other
+     text region is lorem ipsum filler at its real size" (the only phrasing that
+     rendered correctly) or "illegible blurred horizontal bars".
+   - A loose list of legible words scatters them. "the only legible words are
+     'Acme' and the headline" puts the product name inside the CTA button. Bind
+     them: "the wordmark in the top-left reads 'Acme'; the headline reads
+     '<real headline>'; the button reads '<real CTA label>'; every other text
+     region is lorem ipsum filler."
 
-Keep the whole prompt under ~150 words. Log it verbatim (§ Logging).
+   Invented prices, specs, dates or testimonials in a comp are claims PRODUCT.md
+   never made — that is what this rule exists to prevent, so check the render for
+   them rather than trusting the instruction.
+
+Keep the whole prompt under ~180 words. Log it verbatim (§ Logging).
 
 ## What varies across the three
 
@@ -89,8 +109,16 @@ testing when presenting them:
 - Ratio 16:9, desktop. Mobile is NOT comped — it is designed as its own
   choreography at build time and verified as such. Comping a landing in portrait
   misstates the composition.
-- Images route through the same image path as any slot (~1 credit each,
-  measured; re-measure with `get_cost`). Three comps ≈ 3 credits.
+- **A comp needs a text-capable model, which is a different price class from a
+  photo slot.** The ~1 credit/image figure in the assets skill was measured on a
+  photography model; models that render legible type measured 1.25-2 credits
+  (2026-08-09), so the round is **4-6 credits, not 3**. Always re-measure with
+  `get_cost` before quoting a number, and quote the round total, not the unit.
+- Resolve the model with `models_explore` as any slot does, then verify what
+  actually ran: a request for one model can execute on a sibling (observed:
+  `nano_banana_pro` requested, `nano_banana_2` executed, charged at the
+  requested model's rate). Record the executed model in the log, not the asked-for
+  one.
 - The spend is authorized at intake, before the gate, precisely so the comp
   round does not become a second stop. No authorization → skip the round.
 - Generate the three as one batch (`generate_image_batch`) — distinct prompts,
@@ -158,7 +186,9 @@ redrawing the topology is a second art direction, not an adaptation.
 ## Logging
 
 Write `docs/comps/comps.md`: one entry per comp — file path, the axis it tests,
-the verbatim prompt, the model used, the credits spent. Then the decision: which
+the verbatim prompt, the model requested AND the model that actually executed,
+the credits spent, and a two-line read of what the render got right and what it
+botched (invented nav, leaked instructions, fake data). Then the decision: which
 comp was approved (or the combination), the human's words for why, and the
 fidelity inventory. This is what the build reads before composing a single
 section, and what a later refine round reads instead of guessing.

@@ -150,8 +150,39 @@ else {
     if (at === -1) fail(`DESIGN.md.template: missing extension section "${ext}"`);
     else if (at < cursor) fail(`DESIGN.md.template: extension "${ext}" must sit below the canonical block`);
   }
+  // Micro-formats impeccable's design-parser scrapes. Prose that misses these
+  // parses structurally but reads to its coverage check as an empty document.
+  if (!/\*\*Creative North Star: "/.test(body))
+    fail('DESIGN.md.template: north star must match **Creative North Star: "..."** (closing ** after the quote)');
+  if (!/\*\*Key Characteristics:\*\*\s*\n\s*-\s/.test(body))
+    fail('DESIGN.md.template: **Key Characteristics:** must be followed by a bullet list');
+  if (!/^-\s\*\*The .+ (Rule|Fallback|Principle)\.\*\*/m.test(body))
+    fail('DESIGN.md.template: needs at least one named rule bullet **The <Name> Rule.**');
+  if (!/\*\*Display Font:\*\*/.test(body))
+    fail('DESIGN.md.template: typography needs **Display Font:** lines');
+  // "Utility Font" is not a role impeccable knows; unknown roles fall back to
+  // `display` and overwrite the display face with the third-role face.
+  if (/^\*\*Utility Font:\*\*/m.test(body))
+    fail('DESIGN.md.template: **Utility Font:** overwrites the display role — use **Mono Font:** or **Label Font:**');
+  for (const h3 of ['### Primary', '### Neutral', '### Hierarchy', '### Buttons',
+                    '### Cards / Containers', '### Navigation', '### Do:', "### Don't:"])
+    if (!body.includes('\n' + h3)) fail(`DESIGN.md.template: missing scraped sub-heading "${h3}"`);
   ok('DESIGN.md.template spec-compatible');
 }
+
+// 7c. PRODUCT.md template must carry impeccable v4's product record.
+// Without the stamp and these sections, `$impeccable doctor` reports the file
+// as predating the current record (finding: product-schema-legacy).
+const pt = readFileSync('templates/PRODUCT.md.template', 'utf8');
+if (!/<!--\s*impeccable:product-schema\s+\d+\s*-->/.test(pt))
+  fail('PRODUCT.md.template: missing <!-- impeccable:product-schema N --> stamp');
+for (const h of ['## Users', '## Product Purpose', '## Positioning', '## Operating Context',
+                 '## Capabilities and Constraints', '## Evidence on Hand', '## Product Principles'])
+  if (!pt.includes(h)) fail(`PRODUCT.md.template: missing canonical section "${h}"`);
+for (const h of ['## Etapa de conciencia', '## CTA principal', '## Voz de cliente',
+                 '## Anti-referencias', '## Guión'])
+  if (!pt.includes(h)) fail(`PRODUCT.md.template: missing award-craft extension "${h}"`);
+ok('PRODUCT.md.template carries the impeccable v4 product record');
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');
 process.exit(failures ? 1 : 0);

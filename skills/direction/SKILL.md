@@ -129,11 +129,15 @@ palette, type and material language in all three — this round tests structure,
 not identity), each testing one named axis (topology / sequence / density /
 hierarchy / focal composition / signature placement). Prompt LEADS with the
 layout scaffold, region by region with scale relationships — a prompt that opens
-with atmosphere returns a poster, not a page. Only the real product name and one
-real headline are legible; everything else is greeked, because invented prices
-or specs in a comp are claims PRODUCT.md never made. Save to `docs/comps/`, log
-prompts and costs in `docs/comps/comps.md`. Three images ≈ 3 credits — inside
-the comp allowance approved at intake, and counted separately from the asset
+with atmosphere returns a poster, not a page. State that the image IS the
+viewport, edge to edge. Bind every legible string to its region (wordmark reads
+X, headline reads Y, button reads Z, everything else lorem ipsum filler) and
+never write the word "greeked" in a prompt — it comes back rendered as content.
+Pass PRODUCT.md's anti-references verbatim, and name the nav items or say there
+is no nav, or the model fills the gap with the category default. Save to
+`docs/comps/`, log prompts, executed model and costs in `docs/comps/comps.md`.
+Three images ≈ 4-6 credits (text-capable models cost more than photo slots) —
+inside the comp allowance approved at intake, counted separately from the asset
 ceiling.
 
 The comps are NOT a second gate: they are shown WITH the plan at the one gate

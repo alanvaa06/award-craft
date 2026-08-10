@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### Fixed — from the first real dogfood (golden brief, 2026-08-09, 6 credits)
+Ran the golden brief to the gate with live Higgsfield generation. The core bet held — the three comps read as web pages, not posters — and eight defects surfaced that only a real run could show.
+- **Comp prompts leaked their own instructions as content**: "every other text region is greeked" rendered as the literal words *indistinct greeked lines of text*, and a button labelled *greeked text*. comps.md now bans the word "greeked" in a prompt and asks for the visual ("lorem ipsum filler at its real size" — the only phrasing that rendered correctly)
+- **A loose list of legible strings scatters them**: "the only legible words are 'Cumbre' and the headline" put the product name inside the CTA button in 2 of 3 comps. Every legible string is now bound to its region (wordmark reads X, headline reads Y, button reads Z)
+- **An unnamed region gets filled from the category default**: an unnamed utility bar came back as SHOP / ABOUT / CART — the brief's own stated anti-reference. PRODUCT.md's anti-references now go into the comp prompt verbatim, and nav items are named or declared absent
+- **"No browser chrome" does not mean "no canvas"**: one comp rendered the page floating on a cream backdrop with the next section peeking. Prompts now state that the image IS the viewport, edge to edge
+- **Comp budget was understated**: ~1 credit/image was measured on a photography model; text-capable models measured 1.25-2, so the round is 4-6 credits. Corrected in comps.md and in the intake question
+- **PRODUCT.md predated impeccable v4's product record** (`doctor` finding `product-schema-legacy`). The template now carries the `<!-- impeccable:product-schema 1 -->` stamp and the canonical record (Users, Product Purpose, Positioning, Operating Context, Capabilities and Constraints, Brand Commitments, Evidence on Hand, Product Principles), with award-craft's landing intake as extension sections
+- **DESIGN.md parsed structurally but read as an empty document** to impeccable's coverage check (northStar false, colors 0, fonts 0, rules 0). The template now carries the micro-formats its parser actually scrapes: `**Creative North Star: "..."**` with the closing asterisks after the quote, `**Key Characteristics:**` followed by a bullet list, `**The <Name> Rule.**` bullets, `**Name** (#hex):` colour bullets, `**Display Font:**` lines, and the `### Primary` / `### Hierarchy` / `### Buttons` sub-headings
+- **`**Utility Font:**` silently overwrote the display face.** impeccable knows only display / headline / body / ui / label / mono; an unknown role falls back to `display`, so the mono face replaced the display face in the parsed model. Template uses `**Mono Font:**` or `**Label Font:**`, and validate.mjs fails the build if "Utility Font" comes back
+- **Testing trap documented**: installed plugins are served from `~/.claude/plugins/cache/`, so editing a skill on a branch and running the slash command tests the last installed version. README now says how to tell which copy is live
+- validate.mjs enforces all of the above; the fixture re-run ends with `doctor` reporting "No drift found"
+
 ### Added — comp round (three rendered compositions before any code)
 - `direction` Pass 1.5 renders THREE 16:9 comps of the first viewport with the visual world held fixed (same palette, type and material language in all three) — the round tests structure, not identity, and each comp is labelled with the one axis it tests: topology, sequence, density, hierarchy, focal composition or signature placement
 - New reference `direction/references/comps.md`: prompt shape (layout scaffold FIRST — the deliberate inversion of prompting.md's front-load-the-subject rule, because for a comp the layout is the subject), the poster self-check, the greeking rule that keeps invented prices and specs out of a comp, generation and logging

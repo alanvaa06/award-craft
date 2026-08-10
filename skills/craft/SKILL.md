@@ -46,8 +46,9 @@ section is the climax (signature-moment candidate). One question at a time.
    second stop. Skip the question entirely when preflight marked Higgsfield
    unreachable (nothing to authorize) and note the skip for the report: "before the gate I can render three pictures of the first
    viewport so you approve a composition you have actually seen, not a text
-   sketch — about 3 credits (price it with `get_cost` and quote the real number
-   and the balance). Yes or no?" Yes is the default worth recommending. Record
+   sketch — roughly 4-6 credits (comps need a text-capable model, which costs
+   more than a photo slot; price it with `get_cost` and quote the real round
+   total and the balance, never the ~1 credit photo figure). Yes or no?" Yes is the default worth recommending. Record
    the answer; direction runs or skips Pass 1.5 on it. This allowance is
    separate from the asset credit ceiling approved at the gate.
 If docs + answers leave gaps → deep interview until PRODUCT.md writes with no

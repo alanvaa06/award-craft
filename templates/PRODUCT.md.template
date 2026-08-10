@@ -1,14 +1,60 @@
----
+<!-- impeccable:product-schema 1 -->
+<!-- award-craft provenance
 source: {{brand_source_path | "created by award-craft intake"}}
 imported: {{date}}
----
+-->
+
 # PRODUCT — {{project}}
 
-## Oferta
-{{qué vende / qué resuelve, 2-4 líneas}}
+<!--
+FORMAT CONTRACT — read before editing.
+PRODUCT.md is SHARED with impeccable v4: its `init` writes this file, every
+other impeccable command reads it, and `$impeccable doctor` reports a file
+that predates the current record. The stamp on line 1 and the eight canonical
+sections below are impeccable's product record — keep both. award-craft's
+landing-specific intake lives in the extension sections at the bottom.
+Never overwrite an existing PRODUCT.md: read it, and append only the extension
+sections it is missing.
+-->
 
-## Audiencia
-{{quién compra, qué le importa, nivel de sofisticación}}
+## Users
+{{quién compra, su situación y el trabajo que necesita resolver. Añade otras
+audiencias solo si el cliente las confirmó.}}
+
+## Product Purpose
+{{qué hace el producto, por qué existe y qué significa el éxito. 2-4 líneas.}}
+
+## Positioning
+{{el mecanismo o la afirmación que un producto vecino NO podría copiar con
+verdad. Esto es el diferenciador real, no el eslogan.}}
+
+## Operating Context
+{{flujos, entornos, herramientas, documentos, materiales y rituales que son
+parte factual de usar o evaluar el producto — el mundo donde vive.}}
+
+## Capabilities and Constraints
+{{funcionalidad confirmada, restricciones técnicas, terminología, y los hechos
+de producto que siguen explícitamente sin decidir.}}
+
+## Brand Commitments
+{{nombre, voz, activos, personalidad, restricciones de identidad y referencias
+que el cliente hizo vinculantes. Omitir la sección si no existe ninguna.}}
+
+## Evidence on Hand
+{{contenido real, datos, demostraciones, testimonios, casos, prensa o activos,
+con rutas donde aplique. DECLARA LAS AUSENCIAS que el trabajo futuro no debe
+inventar — precios, métricas, nombres de clientes.}}
+
+## Product Principles
+{{tres a cinco principios estratégicos durables derivados de respuestas
+confirmadas; sin recetas visuales.}}
+
+<!-- ===== award-craft extensions (landing intake) ===== -->
+
+## Etapa de conciencia (Schwartz)
+{{Most Aware / Product Aware / Solution Aware / Pain Aware / Unaware — y una
+línea sobre qué implica para el headline y la longitud de página. Si se infirió
+en lugar de declararse, márcalo como INFERIDA y confírmalo en el gate.}}
 
 ## CTA principal
 {{la única acción que la página debe lograr}}
@@ -16,12 +62,19 @@ imported: {{date}}
 ## Tono
 {{3 adjetivos}}
 
+## Voz de cliente (verbatim)
+{{frases textuales del cliente y de sus clientes — testimonios, reseñas, correos
+de soporte, lenguaje de llamadas de venta. NO parafrasear: la copy swipeada es
+la táctica de headline mejor documentada. Si no hay ninguna, dilo explícitamente
+y márcalo como pendiente antes de publicar.}}
+
 ## Referencias visuales
 {{sitios/estéticas a acercarse}}
 
 ## Anti-referencias
-{{lo que NO debe parecer — incluye siempre: plantilla genérica SaaS,
-stock photography, Inter + gradiente morado}}
+{{lo que NO debe parecer — incluye siempre: plantilla genérica SaaS, stock
+photography, Inter + gradiente morado. Estas entran literalmente al prompt de
+las comps: un modelo que no las conoce las inventa.}}
 
 ## Guión
 {{ruta al guión del landing si existe; si no, "sin guión — anatomía estándar"}}

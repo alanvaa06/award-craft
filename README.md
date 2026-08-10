@@ -39,6 +39,15 @@ git clone https://github.com/alanvaa06/award-craft
 /plugin install award-craft@award-craft
 ```
 
+> **Testing unreleased changes:** installed plugins are served from
+> `~/.claude/plugins/cache/award-craft/award-craft/<version>/`, NOT from your
+> working tree. Editing a skill on a branch and then running
+> `/award-craft:craft` silently runs the last installed version — the run looks
+> like a test of your changes and is not one. Either bump the version and
+> reinstall from the local marketplace, or follow the working-tree SKILL.md
+> files directly for the run. Check which copy is live: the skill announces its
+> base directory when it loads.
+
 ## Commands
 
 Two entry points. Start here unless you know you want a single stage.
