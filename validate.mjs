@@ -112,13 +112,45 @@ ok('minimum sizes checked');
 // 7. Content contracts: design-plan template headers + 12 checklist items.
 const dp = readFileSync('templates/design-plan.template.md', 'utf8');
 for (const h of ['## Design read', '## Tokens', '## Motion identity', '## Verbal identity',
-                 '## Calibration dials', '## Art direction', '## Wireframe', '## Signature moment',
+                 '## Calibration dials', '## Art direction', '## Craft-floor overrides',
+                 '## Wireframe', '## Signature moment',
                  '## Drift vs brand source', '## Asset slots'])
   if (!dp.includes(h)) fail(`design-plan.template.md: missing header "${h}"`);
 const cl = readFileSync('skills/verify/references/checklist.md', 'utf8');
 const numbered = cl.match(/^\d+\./gm) || [];
-if (numbered.length !== 23) fail(`checklist.md: expected 23 numbered checks, found ${numbered.length}`);
+if (numbered.length !== 25) fail(`checklist.md: expected 25 numbered checks, found ${numbered.length}`);
 ok('content contracts checked');
+
+// 7b. DESIGN.md template must stay DESIGN.md-spec compatible (impeccable v4 reads it).
+// Canonical sections in canonical order, token frontmatter, extensions after the
+// canonical block, and no YAML arrays (impeccable's frontmatter parser rejects them).
+const dt = readFileSync('templates/DESIGN.md.template', 'utf8');
+if (!dt.startsWith('---\n')) fail('DESIGN.md.template: must open with YAML token frontmatter');
+const fmEnd = dt.indexOf('\n---', 3);
+if (fmEnd === -1) fail('DESIGN.md.template: unterminated frontmatter');
+else {
+  const fm = dt.slice(4, fmEnd);
+  for (const k of ['name:', 'description:', 'colors:', 'typography:', 'rounded:', 'spacing:', 'components:'])
+    if (!fm.includes(k)) fail(`DESIGN.md.template: frontmatter missing "${k}"`);
+  if (/^\s*-\s/m.test(fm)) fail('DESIGN.md.template: frontmatter uses a YAML array (parser rejects arrays)');
+  const body = dt.slice(fmEnd);
+  const CANONICAL = ['## Overview', '## Colors', '## Typography', '## Layout',
+                     '## Elevation & Depth', '## Shapes', '## Components', "## Do's and Don'ts"];
+  let cursor = -1;
+  for (const h of CANONICAL) {
+    const at = body.indexOf('\n' + h);
+    if (at === -1) { fail(`DESIGN.md.template: missing canonical section "${h}"`); continue; }
+    if (at < cursor) fail(`DESIGN.md.template: "${h}" out of canonical order`);
+    cursor = at;
+  }
+  for (const ext of ['## Motion identity', '## Art direction', '## Asset slots',
+                     '## Drift vs brand source', '## Craft-floor overrides']) {
+    const at = body.indexOf('\n' + ext);
+    if (at === -1) fail(`DESIGN.md.template: missing extension section "${ext}"`);
+    else if (at < cursor) fail(`DESIGN.md.template: extension "${ext}" must sit below the canonical block`);
+  }
+  ok('DESIGN.md.template spec-compatible');
+}
 
 console.log(failures ? `\n${failures} failure(s)` : '\nALL GREEN');
 process.exit(failures ? 1 : 0);

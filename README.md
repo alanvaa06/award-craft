@@ -9,7 +9,10 @@ mandatory visual verify loop — no page ships on "the build succeeded" alone.
 
 - Claude Code.
 - Skills [gsap-skills](https://github.com/greensock/gsap-skills) and
-  [impeccable](https://github.com/pbakaus/impeccable) installed.
+  [impeccable](https://github.com/pbakaus/impeccable) **v4 or later** installed.
+  award-craft shares `PRODUCT.md` and `DESIGN.md` with impeccable and runs its
+  detector during verify, so v4's file contract is a hard requirement — the
+  preflight reads impeccable's version and stops below 4.0.
 - Higgsfield MCP connected (asset generation — hero images, textures,
   background loops).
 - Optional: `ffmpeg` on PATH (scroll-video frame extraction — becomes required
@@ -82,7 +85,10 @@ directly when you only want that piece redone.
    copy, and the one signature moment — which sits on the story's climax, so
    the page's biggest animation lands on its biggest line. Push back here and
    iterate: changing the plan is cheap, changing a built page is not. On
-   approval `DESIGN.md` is written and locked in.
+   approval `DESIGN.md` is written and locked in — in the shared
+   [DESIGN.md spec](https://github.com/google-labs-code/design.md) format, so
+   impeccable reads the same file instead of fighting over it. An existing
+   `DESIGN.md` is never overwritten without asking.
 5. **Everything after runs on its own:** code, then images, then the verify
    loop. Watch it screenshot, grade, fix, and re-shoot.
 6. **Read the final report.** It flags where the landing drifted from your
@@ -123,7 +129,7 @@ that.
 
 ```
  preflight
-    │  (CORE: gsap-skills, impeccable — stop if missing)
+    │  (CORE: gsap-skills, impeccable v4+ — stop if missing or older)
     │  (asset CORE: Higgsfield MCP — warn + mark assets blocked)
     ▼
  intake

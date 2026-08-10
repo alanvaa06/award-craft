@@ -20,7 +20,15 @@ Run this before generating anything, every time.
    run — if they do consume credits, the sum undercounts and the ceiling stop
    fires late.
 3. Compare the total against the CREDIT CEILING approved with the design plan
-   (recorded in DESIGN.md under Asset slots).
+   (recorded in DESIGN.md under the `## Asset slots` extension section — the
+   non-canonical block below Do's and Don'ts; the canonical sections above it
+   belong to the shared DESIGN.md spec and are not this skill's to edit).
+
+Price only the slots whose MEDIUM is `produce`. `direct` slots ship a real asset
+the client supplied (convert and place, no generation, no credits); `semantic`
+slots are built in HTML/CSS/SVG/canvas by build-recipes and never reach this
+skill. A slot silently downgraded from `produce` to `semantic` at build time is
+a verify finding, not an optimization — flag it instead of absorbing it.
 
 - Total within ceiling AND within balance → proceed, no interruption. This is
   the normal path; do not ask for permission you were already given.

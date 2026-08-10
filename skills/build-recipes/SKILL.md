@@ -16,8 +16,14 @@ pattern goes WHERE and the site-level wiring.
 2. Global wiring FIRST (${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/lenis-setup.md):
    Lenis on GSAP ticker, `lagSmoothing(0)`, single RAF loop.
    `html { scroll-behavior: auto !important }`.
-3. Tokens: DESIGN.md palette/type/spacing → Tailwind theme + CSS custom
-   properties (`--ease-out-brand`, `--dur-base`...). `gsap.defaults({ease, duration})`.
+3. Tokens: read them from **DESIGN.md's YAML frontmatter** (`colors`,
+   `typography`, `rounded`, `spacing`, `components`) — that layer is normative,
+   the prose sections are context. Motion tokens come from the `## Motion
+   identity` extension section (mirrored in `.impeccable/design.json` under
+   `extensions.motion`). Frontmatter → Tailwind theme + CSS custom properties
+   (`--ease-out-brand`, `--dur-base`...). `gsap.defaults({ease, duration})`.
+   Keep the CSS custom-property names equal to the frontmatter token slugs so
+   impeccable's detector and live panel resolve them.
 4. Sections in SCRIPT ORDER, one at a time. Per section pick the pattern from
    ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/page-anatomy.md +
    ${CLAUDE_PLUGIN_ROOT}/skills/build-recipes/references/scrolltrigger-patterns.md.

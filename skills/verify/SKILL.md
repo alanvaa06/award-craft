@@ -16,6 +16,11 @@ description: Mandatory visual verification loop for award-craft landings — scr
 4. Critique each screenshot against
    ${CLAUDE_PLUGIN_ROOT}/skills/verify/references/checklist.md — enumerate
    concrete deltas, no vibes. Code checks (grep items) run once per pass.
+   Run impeccable's detector once per pass over the changed targets —
+   `node <impeccable-base>/scripts/detect.mjs --json <targets>`, base dir
+   resolved in preflight — and fold its findings into the same list (checks
+   24-25). It catches the mechanical tells this checklist deliberately does not
+   duplicate; do not eyeball them, and do not run it twice in one pass.
 5. Fix findings. Re-shoot affected screenshots.
 6. A screenshot that passes is renamed with the `verified_` prefix. Loop until
    the whole set carries the prefix, then run ONE final confirmation pass.

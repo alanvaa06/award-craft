@@ -10,7 +10,12 @@ Run phases IN ORDER. One human gate. Never skip verify.
 ## 0. Preflight
 Check and report before anything:
 - CORE (stop with install instructions if missing): gsap-skills skills
-  available; impeccable available.
+  available; **impeccable v4+** available. Resolve its base dir once and reuse
+  it (later phases need its scripts) — first hit of `.agents/skills/impeccable`,
+  `.claude/skills/impeccable`, `~/.claude/skills/impeccable`. Read `version:`
+  from its `SKILL.md` frontmatter: below 4.0 → stop and say so, because v4
+  changed the shared `DESIGN.md` contract this plugin now writes against.
+  Report the resolved path and version.
 - CORE for asset phase (continue but mark assets phase blocked): Higgsfield
   MCP tools reachable — also read the credit balance so the design plan's
   ceiling can be proposed against a real number.
@@ -23,10 +28,15 @@ Check and report before anything:
 Inputs (any combination): text brief; @docs (PRD, brand doc, landing script
 "guión" — script sections become the page structure); `--brand <path>` folder.
 Brand source resolution, in order:
-  a) PRODUCT.md / DESIGN.md in the target repo → use them.
+  a) PRODUCT.md / DESIGN.md in the target repo → use them. They are SHARED with
+     impeccable (its `init` writes PRODUCT.md, its `document`/documenter writes
+     DESIGN.md). Read whatever is there and never clobber it: append the
+     award-craft sections that are missing, leave the rest alone. An
+     impeccable-written DESIGN.md is the incumbent visual world — direction
+     treats it as a brand source with drift rules, not as an empty slot.
   b) External folder (--brand or ask) → IMPORT as local working copies with
-     provenance frontmatter (source path + imported date). NEVER write to the
-     business folder — it is a source, not a destination.
+     provenance (source path + imported date). NEVER write to the business
+     folder — it is a source, not a destination.
   c) Neither exists → create via interview.
 ALWAYS ask comprehension questions (even with docs): offer, audience, primary
 CTA, tone (3 adjectives), visual references/anti-references, which script

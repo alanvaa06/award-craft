@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Changed — impeccable v4 interop (P0)
+- `DESIGN.md` is now written in the shared [DESIGN.md spec](https://github.com/google-labs-code/design.md) format that impeccable v4 reads, drift-checks and rewrites: YAML token frontmatter (normative) + the eight canonical sections in order, with award-craft's production data (motion identity, art direction, asset slots, drift, craft-floor overrides) confined to clearly-marked extension sections below them. Verified against impeccable's own `design-parser.mjs`
+- Motion, shadows, breakpoints and narrative are mirrored to the `.impeccable/design.json` sidecar (`schemaVersion: 2`) — the layer the 8-prop component schema cannot hold
+- build-recipes reads tokens from the frontmatter, not from prose
+- An existing `PRODUCT.md` / `DESIGN.md` is never overwritten silently, whoever wrote it: refresh / merge / keep is the human's call, and an impeccable-written DESIGN.md is treated as incumbent visual truth with drift rules
+- Preflight resolves impeccable's base dir and requires **v4.0+**, because v4 is what changed the file contract
+- verify and elevate now run impeccable's detector (`scripts/detect.mjs --json`) instead of assuming its hook is on; findings are consumed, not re-derived (new checks 24-25)
+- Asset slots carry a `medium` (`produce` / `direct` / `semantic`) decided from what the slot shows, not from what feels buildable — the guard against an approved material silently becoming a CSS gradient
+- Resolved six doctrine collisions between `trends.md` and impeccable's `craft-floor.md` (grain/`feTurbulence`, CSS textures, viewport-scale display type, mono labels, section indices, glass): overridable only when named in the design plan and carried into DESIGN.md's `## Craft-floor overrides`; unnamed use is a verify finding. Eyebrow/kicker, gradient text and nested cards stay banned outright
+- `anti-patterns.md`'s "already covered by impeccable" list refreshed to the v4 craft floor
+
 ### Known limitations (v0.2 candidates)
 - DESIGN.md asset-slot `file` column is filled by the assets phase only in reports, not written back
 - Section-stack pattern (N sequential pins) vs 1-2 pinned-sequences budget: budget wins unless the gate approves otherwise
